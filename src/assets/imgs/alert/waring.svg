@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #e9b043;
+      }
+    </style>
+  </defs>
+  <g id="Group_3572" data-name="Group 3572" transform="translate(-37 -76)">
+    <g id="Group_3571" data-name="Group 3571" transform="translate(37 76)">
+      <path id="Path_3765" data-name="Path 3765" class="cls-1" d="M17.5,35A17.5,17.5,0,1,1,35,17.5,17.512,17.512,0,0,1,17.5,35Zm0-33.765A16.265,16.265,0,1,0,33.765,17.5,16.273,16.273,0,0,0,17.5,1.235Z"/>
+    </g>
+    <path id="错误_2_" data-name="错误 (2)" class="cls-1" d="M97.929,77.36a2.289,2.289,0,0,0,0,4.576,2.289,2.289,0,0,0,0-4.576ZM96.691,75h2.587l1.165-14.91H95.526Z" transform="translate(-43.534 22.311)"/>
+  </g>
+</svg>

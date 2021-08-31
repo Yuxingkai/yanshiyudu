@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+    <script src="<%= BASE_URL %>vtour/tour.js"></script>
+    <script type="text/javascript" src="<%= BASE_URL %>jquery.min.js"></script>
+
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>LOGO.ico">
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+    <script src="https://webapi.amap.com/maps?v=1.4.15&key=3eaa09bfa65a18593d6696e889c4efa3"></script>
+    <!-- <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=iuRrnwIABxxxxxxxAsxMAysHuMiF6"></script> -->
+    <!-- <script type="text/javascript" src="http://192.168.3.117:8082/yufan/assects/3.23/gaodeLayer.js"></script> -->
+    <!-- <script src="http://192.168.3.133:6080/arcgis/rest/services/base_yudu/MapServer"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/build/ol.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/css/ol.css"> -->
+</head>
+
+
+<body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+</body>
+<script type="text/javascript">
+    // var geoc = new BMap.Geocoder();
+    // var native = new BMap.LocalCity();
+    // console.log(geoc, native)
+    // alert(geoc, native)
+    // window.localStorage.setItem('bodyHeight', document.body.scrollHeight)
+    // var fullWidth = 1920;
+    // var fullHeight = 1080;
+    // var scale = window.innerWidth / window.innerHeight <= fullWidth / fullHeight ?
+    //     window.innerWidth / fullWidth : window.innerHeight / fullHeight;
+    // $(document.documentElement).css("font-size", Math.round(100 * scale) + "px");
+    // $(window).resize(function() {
+    //     var fullWidth = 1920;
+    //     var fullHeight = 1080;
+    //     var scale = window.innerWidth / window.innerHeight <= fullWidth / fullHeight ?
+    //         window.innerWidth / fullWidth : window.innerHeight / fullHeight;
+    //     $(document.documentElement).css("font-size", Math.round(100 * scale) + "px");
+    // });
+
+    function EventTarget() {
+        this.handlers = {};
+    }
+    EventTarget.prototype = {
+        constructor: EventTarget,
+        addHandler: function(type, handler) {
+            if (typeof this.handlers[type] === "undefined") {
+                this.handlers[type] = [];
+            }
+            this.handlers[type].push(handler);
+        },
+        fire: function(event) {
+            if (!event.target) {
+                event.target = this;
+            }
+            if (this.handlers[event.type] instanceof Array) {
+                const handlers = this.handlers[event.type];
+                handlers.forEach((handler) => {
+                    handler(event);
+                })
+            }
+        },
+        removeHandler: function(type, handler) {
+            if (this.handlers[type] instanceof Array) {
+                const handlers = this.handlers[type];
+                for (var i = 0, len = handlers.length; i < len; i++) {
+                    if (handlers[i] === handler) {
+                        break;
+                    }
+                }
+                handlers.splice(i, 1);
+            }
+        }
+    }
+
+    var target = new EventTarget();
+
+    function go(t) {
+        target.fire({
+            type: "message",
+            message: t
+        });
+    }
+</script>
+
+</html>

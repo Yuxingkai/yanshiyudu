@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110.723 73.037">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke-miterlimit: 10;
+        stroke-width: 0.5px;
+      }
+
+      .cls-1 {
+        stroke: #05acd4;
+      }
+
+      .cls-2 {
+        stroke: #05a4d4;
+      }
+    </style>
+  </defs>
+  <g id="视频窗口" transform="translate(0.251 0.25)">
+    <g id="Group_1132" data-name="Group 1132" transform="translate(0 0)">
+      <path id="Path_1610" data-name="Path 1610" class="cls-1" d="M10.5,2.629V1.565H44.539L46.16.5h38.9l1.621,1.065h34.039V2.629" transform="translate(-10.5 -0.5)"/>
+      <path id="Path_1611" data-name="Path 1611" class="cls-2" d="M112.973,30.5H78.788l-1.581,1.412H39.274L37.694,30.5H3.53" transform="translate(-3.014 40.625)"/>
+    </g>
+  </g>
+</svg>

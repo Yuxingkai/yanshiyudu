@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.572 31.145">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #0ed5cd;
+      }
+
+      .cls-2 {
+        opacity: 0.2;
+      }
+
+      .cls-3 {
+        fill: none;
+        stroke: #b5e1ea;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <g id="左" transform="translate(15.072 29.938) rotate(180)">
+    <g id="Group_1134" data-name="Group 1134" transform="translate(0 7.183)">
+      <path id="Path_1637" data-name="Path 1637" class="cls-1" d="M7.183,7.183,0,14.365V9.577L2.394,7.183,0,4.788V0Z" transform="translate(0 0)"/>
+    </g>
+    <g id="Group_1135" data-name="Group 1135" class="cls-2" transform="translate(0 0)">
+      <path id="Path_1638" data-name="Path 1638" class="cls-3" d="M0,0,14.365,14.365,0,28.731Z" transform="translate(0 0)"/>
+    </g>
+  </g>
+</svg>

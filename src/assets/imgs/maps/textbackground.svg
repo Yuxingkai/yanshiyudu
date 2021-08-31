@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 182.541 37.796">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #091e38;
+      }
+
+      .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-2, .cls-3, .cls-4, .cls-6, .cls-7 {
+        fill: #31f1fe;
+      }
+
+      .cls-2, .cls-3, .cls-5, .cls-6, .cls-8, .cls-9 {
+        stroke: #31f1fe;
+        stroke-width: 0.5px;
+      }
+
+      .cls-2 {
+        opacity: 0.498;
+      }
+
+      .cls-3 {
+        opacity: 0.597;
+      }
+
+      .cls-4 {
+        opacity: 0.706;
+      }
+
+      .cls-5, .cls-8, .cls-9 {
+        fill: none;
+      }
+
+      .cls-5 {
+        opacity: 0.597;
+      }
+
+      .cls-6 {
+        opacity: 0.599;
+      }
+
+      .cls-8 {
+        opacity: 0.296;
+      }
+
+      .cls-9 {
+        opacity: 0.295;
+      }
+
+      .cls-10 {
+        opacity: 0.196;
+      }
+
+      .cls-11 {
+        opacity: 0.805;
+      }
+
+      .cls-12 {
+        opacity: 0.6;
+      }
+
+      .cls-13 {
+        opacity: 0.502;
+      }
+
+      .cls-14 {
+        opacity: 0.404;
+      }
+
+      .cls-15 {
+        opacity: 0.302;
+      }
+    </style>
+  </defs>
+  <g id="气泡-3" transform="translate(-485.25 -668.979)">
+    <path id="Path_2482" data-name="Path 2482" class="cls-1" d="M.01,1.047,1-.045,174.787,0V32.095H0Z" transform="translate(493 673)"/>
+    <path id="Path_2475" data-name="Path 2475" class="cls-2" d="M0,8.229v2.5" transform="translate(485.5 696.041)"/>
+    <path id="Path_2477" data-name="Path 2477" class="cls-3" d="M3.768.025,111.555,0l74.732-.284" transform="translate(481.5 706.5)"/>
+    <path id="Path_2478" data-name="Path 2478" class="cls-4" d="M5.949,10H9V41H2V14.167Z" transform="translate(484 664)"/>
+    <path id="Path_2483" data-name="Path 2483" class="cls-5" d="M-.023.255l173.8.086" transform="translate(493.5 704.5)"/>
+    <path id="Path_2479" data-name="Path 2479" class="cls-6" d="M.025,36.595.041.479" transform="translate(667.5 668.5)"/>
+    <circle id="Ellipse_175" data-name="Ellipse 175" class="cls-7" cx="0.5" cy="0.5" r="0.5" transform="translate(494 674)"/>
+    <line id="Line_727" data-name="Line 727" class="cls-8" y2="3" transform="translate(494.5 675.5)"/>
+    <line id="Line_728" data-name="Line 728" class="cls-9" x2="8" transform="translate(495.5 674.5)"/>
+    <rect id="Rectangle_1799" data-name="Rectangle 1799" class="cls-10" width="89" height="4" transform="translate(494 669)"/>
+    <rect id="Rectangle_1800" data-name="Rectangle 1800" class="cls-11" width="4" height="4" transform="translate(663 669)"/>
+    <rect id="Rectangle_1801" data-name="Rectangle 1801" class="cls-12" width="5" height="4" transform="translate(658 669)"/>
+    <rect id="Rectangle_1802" data-name="Rectangle 1802" class="cls-13" width="10" height="4" transform="translate(648 669)"/>
+    <rect id="Rectangle_1803" data-name="Rectangle 1803" class="cls-14" width="25" height="4" transform="translate(623 669)"/>
+    <rect id="Rectangle_1804" data-name="Rectangle 1804" class="cls-15" width="40" height="4" transform="translate(583 669)"/>
+    <path id="Path_2480" data-name="Path 2480" class="cls-7" d="M-.42-.272l157.865.083V.393L-.42.347Z" transform="translate(502 702)"/>
+    <circle id="Ellipse_176" data-name="Ellipse 176" class="cls-7" cx="0.5" cy="0.5" r="0.5" transform="translate(500 701.5)"/>
+    <circle id="Ellipse_177" data-name="Ellipse 177" class="cls-7" cx="0.5" cy="0.5" r="0.5" transform="translate(660 701.5)"/>
+  </g>
+</svg>

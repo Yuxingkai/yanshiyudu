@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 14.135 17.499">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-2 {
+        filter: url(#Bell);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="0.5" y1="1" x2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#f2c3c3"/>
+      <stop offset="1" stop-color="red"/>
+    </linearGradient>
+    <filter id="Bell" x="0" y="0" width="14.135" height="17.499" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur result="blur"/>
+      <feFlood flood-color="#f93e3e"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="LOGIN" transform="translate(-953.449 -634.917)">
+    <g class="cls-2" transform="matrix(1, 0, 0, 1, 953.45, 634.92)">
+      <path id="Bell-2" data-name="Bell" class="cls-1" d="M869.516,2032.416c-3.9,0-7.068-1.583-7.068-3.536a2.529,2.529,0,0,1,1.178-1.95v-2.764a5.893,5.893,0,0,1,3.581-5.421,2.356,2.356,0,1,1,4.617,0,5.893,5.893,0,0,1,3.581,5.421v2.764a2.529,2.529,0,0,1,1.178,1.95C876.584,2030.833,873.42,2032.416,869.516,2032.416Zm0-5.893c-2.6,0-4.712,1.055-4.712,2.357s2.11,2.357,4.712,2.357,4.712-1.055,4.712-2.357S872.119,2026.523,869.516,2026.523Zm0,3.536a2.354,2.354,0,0,1-2.311-1.917,6.284,6.284,0,0,1,4.623,0A2.354,2.354,0,0,1,869.516,2030.059Z" transform="translate(-862.45 -2015.92)"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55.395 27.698">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0.8;
+      }
+
+      .cls-2 {
+        fill: #0a1e38;
+        stroke: #31f1fe;
+      }
+
+      .cls-3, .cls-4 {
+        fill: #0ed5cd;
+      }
+
+      .cls-4 {
+        opacity: 0.2;
+      }
+    </style>
+  </defs>
+  <g id="Group_2240" data-name="Group 2240" transform="translate(-532.547 -830.349)">
+    <g id="Group_2237" data-name="Group 2237" class="cls-1" transform="translate(533.755 830.849)">
+      <path id="Path_1670" data-name="Path 1670" class="cls-2" d="M90,1l26.49,26.49L142.981,1Z" transform="translate(-90 -1)"/>
+    </g>
+    <g id="Group_2238" data-name="Group 2238" transform="translate(552.894 836.743)">
+      <path id="Path_1672" data-name="Path 1672" class="cls-3" d="M128.635,9.9l-2.384,2.384L123.867,9.9H118.9l7.351,7.351L133.6,9.9Z" transform="translate(-118.9 -9.9)"/>
+    </g>
+    <path id="Path_2473" data-name="Path 2473" class="cls-4" d="M108.37,6.2H105l9.933,9.734h3.311Z" transform="translate(438.689 828.16)"/>
+    <path id="Path_2474" data-name="Path 2474" class="cls-4" d="M144.891,6.223h3.266l-9.845,9.711H135Z" transform="translate(428.556 828.16)"/>
+  </g>
+</svg>

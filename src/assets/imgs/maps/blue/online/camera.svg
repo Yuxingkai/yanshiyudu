@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 69 69">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #00aeef;
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-4 {
+        fill: #08bdc9;
+      }
+
+      .cls-5 {
+        fill: #b4f4f8;
+      }
+
+      .cls-6 {
+        fill: #022e31;
+      }
+
+      .cls-7 {
+        fill: #079ca6;
+      }
+
+      .cls-8 {
+        fill: #04656b;
+      }
+
+      .cls-10, .cls-9 {
+        stroke: none;
+      }
+
+      .cls-10 {
+        fill: #11adc5;
+      }
+
+      .cls-11 {
+        filter: url(#video-256);
+      }
+
+      .cls-12 {
+        filter: url(#Path_2366);
+      }
+
+      .cls-13 {
+        filter: url(#Path_2386);
+      }
+    </style>
+    <filter id="Path_2386" x="0" y="0" width="69" height="69" filterUnits="userSpaceOnUse">
+      <feOffset dx="1" dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="0.5" result="blur"/>
+      <feFlood flood-color="#000103"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#09d3e0"/>
+      <stop offset="1" stop-color="#245c8d"/>
+    </linearGradient>
+    <filter id="Path_2366" x="5.199" y="5.042" width="59.266" height="59.31" filterUnits="userSpaceOnUse">
+      <feOffset dx="1" dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="0.5" result="blur-2"/>
+      <feFlood flood-color="#000103"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="video-256" x="19" y="19" width="31" height="31" filterUnits="userSpaceOnUse">
+      <feOffset dx="1" dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="0.5" result="blur-3"/>
+      <feFlood flood-color="#022e31"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="摄像机-1" transform="translate(-65.496 -19.353)">
+    <g class="cls-13" transform="matrix(1, 0, 0, 1, 65.5, 19.35)">
+      <g id="Path_2386-2" data-name="Path 2386" class="cls-1" transform="translate(0.5 0.5)">
+        <path class="cls-9" d="M33,0A33,33,0,1,1,0,33,33,33,0,0,1,33,0Z"/>
+        <path class="cls-10" d="M 33 65 C 37.32041168212891 65 41.51105880737305 64.15406036376953 45.45553970336914 62.48569107055664 C 49.26596069335938 60.87401962280273 52.68827056884766 58.56655883789062 55.62741851806641 55.62741851806641 C 58.56655883789062 52.68827056884766 60.87401962280273 49.26596069335938 62.48569107055664 45.45553970336914 C 64.15406036376953 41.51105880737305 65 37.32041168212891 65 33 C 65 28.67959022521973 64.15406036376953 24.48893928527832 62.48569107055664 20.54446983337402 C 60.87401962280273 16.73405075073242 58.56655883789062 13.31173038482666 55.62741851806641 10.37259006500244 C 52.68827056884766 7.433440208435059 49.26596069335938 5.125979900360107 45.45553970336914 3.514309883117676 C 41.51105880737305 1.845939993858337 37.32041168212891 1 33 1 C 28.67959022521973 1 24.48893928527832 1.845939993858337 20.54446983337402 3.514309883117676 C 16.73405075073242 5.125979900360107 13.31173038482666 7.433440208435059 10.37259006500244 10.37259006500244 C 7.433440208435059 13.31173038482666 5.125979900360107 16.73405075073242 3.514309883117676 20.54446983337402 C 1.845939993858337 24.48893928527832 1 28.67959022521973 1 33 C 1 37.32041168212891 1.845939993858337 41.51105880737305 3.514309883117676 45.45553970336914 C 5.125979900360107 49.26596069335938 7.433440208435059 52.68827056884766 10.37259006500244 55.62741851806641 C 13.31173038482666 58.56655883789062 16.73405075073242 60.87401962280273 20.54446983337402 62.48569107055664 C 24.48893928527832 64.15406036376953 28.67959022521973 65 33 65 M 33 66 C 14.77460956573486 66 0 51.22539901733398 0 33 C 0 14.77460956573486 14.77460956573486 0 33 0 C 51.22539901733398 0 66 14.77460956573486 66 33 C 66 51.22539901733398 51.22539901733398 66 33 66 Z"/>
+      </g>
+    </g>
+    <g id="Group_2025" data-name="Group 2025" transform="translate(-75 -49)">
+      <path id="Path_2365" data-name="Path 2365" class="cls-2" d="M166.7,76.6a26.513,26.513,0,1,0,33,17.8A26.546,26.546,0,0,0,166.7,76.6Z"/>
+      <g class="cls-12" transform="matrix(1, 0, 0, 1, 140.5, 68.35)">
+        <path id="Path_2366-2" data-name="Path 2366" class="cls-3" d="M182.4,129a28.127,28.127,0,1,1,18.9-35A28.045,28.045,0,0,1,182.4,129Z" transform="translate(-140.5 -68.35)"/>
+      </g>
+    </g>
+    <g id="Group_2026" data-name="Group 2026">
+      <path id="Path_2371" data-name="Path 2371" class="cls-4" d="M78,51.4l-5.1-.6a26.248,26.248,0,0,0,5.7,18.4l4-3.2A21.422,21.422,0,0,1,78,51.4Z"/>
+      <path id="Path_2372" data-name="Path 2372" class="cls-5" d="M82.6,66l-4,3.2a26.02,26.02,0,0,0,16.7,9.5l.6-5.1A20.927,20.927,0,0,1,82.6,66Z"/>
+      <path id="Path_2373" data-name="Path 2373" class="cls-6" d="M115.3,39.7l4-3.2A26.469,26.469,0,0,0,101,26.8l-.6,5.1A21.165,21.165,0,0,1,115.3,39.7Z"/>
+      <path id="Path_2374" data-name="Path 2374" class="cls-7" d="M84.9,37.3l-3.2-4a26.053,26.053,0,0,0-8.8,17.6l5.1.6A20.95,20.95,0,0,1,84.9,37.3Z"/>
+      <path id="Path_2375" data-name="Path 2375" class="cls-8" d="M85.8,36.5a20.928,20.928,0,0,1,14.6-4.6l.6-5.1a26.247,26.247,0,0,0-18.4,5.7c-.3.2-.6.5-.9.7l3.2,4A5.5,5.5,0,0,0,85.8,36.5Z"/>
+    </g>
+    <g class="cls-11" transform="matrix(1, 0, 0, 1, 65.5, 19.35)">
+      <image id="video-256-2" data-name="video-256" width="28" height="28" transform="translate(19.5 19.5)" xlink:href="data:image/png;base64,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"/>
+    </g>
+  </g>
+</svg>

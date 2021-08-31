@@ -1,0 +1,1287 @@
+.amap-info-sharp {
+  display: none!important;
+}
+.amap-info-content {
+  background: none;
+  padding: 0;
+}
+.amap-info-outer, .amap-menu-outer {
+  background: none;
+}
+.amap-info-close {
+  display: none;
+}
+.map-tv-1 {
+  height: 152px!important;
+  padding-top: 0!important;
+}
+.map-tv-1 div {
+  width: 118px!important;
+  height: 152px!important;
+}
+.marker-face-color {
+  width: 48px;
+  height: 48px;
+  background: url('../imgs/maps/color/newonline/face.png') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.markerBlink-face-color {
+  width: 48px;
+  height: 48px;
+  background: url('../imgs/maps/color/newonline/face.png') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+  animation: pulsate 1.5s ease-out;
+  animation-iteration-count: infinite; /*无穷反复*/
+  animation-delay: 1.1s;
+  /*position: relative;*/
+}
+.markerBlink-car-color {
+  width: 48px;
+  height: 48px;
+  background: url('../imgs/maps/color/newonline/car.png') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+  animation: pulsate 1.5s ease-out;
+  animation-iteration-count: infinite; /*无穷反复*/
+  animation-delay: 1.1s;
+  /*position: relative;*/
+}
+.markerBlink-camera-color {
+  width: 48px;
+  height: 48px;
+  background: url('../imgs/maps/color/newonline/camera.png') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+  animation: pulsate 1.5s ease-out;
+  animation-iteration-count: infinite; /*无穷反复*/
+  animation-delay: 1.1s;
+  /*position: relative;*/
+}
+.alarm-face-color {
+  width: 48px;
+  height: 48px;
+  background: url('../imgs/maps/color/newonline/alarmFace.png') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+  animation: pulsate 1.5s ease-out;
+  animation-iteration-count: infinite; /*无穷反复*/
+  animation-delay: 1.1s;
+  /*position: relative;*/
+}
+.alarm-car-color {
+  width: 48px;
+  height: 48px;
+  background: url('../imgs/maps/color/newonline/alarmCar.png') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+  animation: pulsate 1.5s ease-out;
+  animation-iteration-count: infinite; /*无穷反复*/
+  animation-delay: 1.1s;
+  /*position: relative;*/
+}
+/*.marker-face-color::after {*/
+  /*content: "";*/
+  /*-webkit-border-radius: 100%;*/
+  /*border-radius: 100%;*/
+  /*height: 100%;*/
+  /*width: 100%;*/
+  /*position: absolute;*/
+  /*margin: 40% 0 0 -50%;*/
+  /*box-shadow: 0 0 6px 2px #dd524d;*/
+  /*-webkit-transform:rotateX(120deg);*/
+  /*animation: pulsate 1s ease-out;*/
+  /*animation-iteration-count: infinite; !*无穷反复*!*/
+  /*animation-delay: 1.1s;*/
+/*}*/
+
+@keyframes pulsate {
+  0% {
+    /*transform: scale(0.1, 0.1);*/
+    opacity: 0;
+    /*-webkit-transform: scale(0.1, 0.1);*/
+    filter: alpha(opacity=0);
+  }
+  50% {
+    opacity: 1;
+    /*-webkit-transform:rotateX(120deg);*/
+    filter: none;
+  }
+  100% {
+    /*transform: scale(1.2, 1.2);*/
+    opacity: 0;
+    /*-webkit-transform:scale(1.2, 1.2);*/
+    filter: alpha(opacity=0);
+  }
+}
+.marker-car-color {
+  width: 48px;
+  height: 48px;
+  background: url('../imgs/maps/color/newonline/car.png') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-camera-color {
+  width: 68px;
+  height: 68px;
+  background: url('../imgs/maps/color/newonline/camera.png') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-camera_car-color {
+  width: 48px;
+  height: 48px;
+  background: url('../imgs/maps/color/newonline/camera.png') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-access-color {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/color/newonline/access.png') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-position-color {
+  width: 48px;
+  height: 48px;
+  background: url('../imgs/maps/color/newonline/position.png') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-centerPoint-color {
+  width: 96px;
+  height: 96px;
+  background: url('../imgs/maps/color/newonline/centerPoint.png') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-alarmCar-color {
+  width: 48px;
+  height: 48px;
+  background: url('../imgs/maps/color/newonline/alarmCar.png') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-alarmFace-color {
+  width: 48px;
+  height: 48px;
+  background: url('../imgs/maps/color/newonline/alarmFace.png') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+
+
+
+
+
+
+
+
+
+
+/*************风格color****************/
+/**
+高德地图icon style 在线
+*/
+.marker-camera-1-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/online/camera.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-access-1-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/online/access.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-camera_car-1-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/online/camera_car.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-camera_accessFace-1-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/online/camera_accessFace.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-camera_face-1-color {
+    width: 38px;
+    height: 38px;
+    background: url('../imgs/maps/color/online/camera_face.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-elecMeter-1-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/online/elecMeter.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-electricArc-1-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/online/electricArc.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  /* .marker-face-1 {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/online/face.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  } */
+  .marker-fireCock-1-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/online/fireCock.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-manholeCover-1-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/online/manholeCover.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  /* .marker-resident-1 {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/online/resident.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  } */
+  /* .marker-security-1 {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/online/security.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  } */
+  .marker-smokeDetector-1-color {
+    width: 38px;
+    height: 38px;
+    background: url('../imgs/maps/color/online/smokeDetector.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-geomagnetic-1-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/online/geomagnetic.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-charger-1-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/online/charger.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-combustibleGas-1-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/online/combustibleGas.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-fence_point-1-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/online/fence_point.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-electronicPatrol-1-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/online/electronicPatrol.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-agedAlarm-1-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/online/agedAlarm.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-agedElectricSafety-1-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/online/agedElectricSafety.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+
+  /*
+  高德地图icon 离线
+  */
+  .marker-camera-0-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/offline/camera.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-access-0-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/offline/access.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-camera_car-0-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/offline/camera_car.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-camera_accessFace-0-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/offline/camera_accessFace.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-camera_face-0-color {
+    width: 38px;
+    height: 38px;
+    background: url('../imgs/maps/color/offline/camera_face.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-elecMeter-0-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/offline/elecMeter.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-electricArc-0-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/offline/electricArc.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  /* .marker-face-0 {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/offline/face.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  } */
+  .marker-fireCock-0-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/offline/fireCock.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-manholeCover-0-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/offline/manholeCover.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  /* .marker-resident-0 {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/offline/resident.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  } */
+  /* .marker-security-0 {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/offline/security.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  } */
+  .marker-smokeDetector-0-color {
+    width: 38px;
+    height: 38px;
+    background: url('../imgs/maps/color/offline/smokeDetector.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-geomagnetic-0-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/offline/geomagnetic.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-charger-0-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/offline/charger.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-combustibleGas-0-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/offline/combustibleGas.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-fence_point-0-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/offline/fence_point.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-electronicPatrol-0-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/offline/electronicPatrol.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-agedAlarm-0-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/offline/agedAlarm.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-agedElectricSafety-0-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/offline/agedElectricSafety.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  /*
+  高德地图icon 故障
+  */
+  .marker-camera-2-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/broken/camera.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-access-2-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/broken/access.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-camera_car-2-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/broken/camera_car.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-camera_accessFace-2-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/broken/camera_accessFace.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-camera_face-2-color {
+    width: 38px;
+    height: 38px;
+    background: url('../imgs/maps/color/broken/camera_face.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-elecMeter-2-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/broken/elecMeter.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-electricArc-2-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/broken/electricArc.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  /* .marker-face-2-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/broken/face.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  } */
+  .marker-fireCock-2-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/broken/fireCock.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-manholeCover-2-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/broken/manholeCover.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  /* .marker-resident-2 {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/broken/resident.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  } */
+  /* .marker-security-2 {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/broken/security.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  } */
+  .marker-smokeDetector-2-color {
+    width: 38px;
+    height: 38px;
+    background: url('../imgs/maps/color/broken/smokeDetector.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-geomagnetic-2-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/broken/geomagnetic.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-charger-2-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/broken/charger.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-combustibleGas-2-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/broken/combustibleGas.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-fence_point-2-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/broken/fence_point.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-electronicPatrol-2-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/broken/electronicPatrol.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-agedAlarm-2-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/broken/agedAlarm.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-agedElectricSafety-2-color {
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/broken/agedElectricSafety.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-building-color{
+    width: 32px;
+    height: 32px;
+    background: url('../imgs/maps/color/building.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-parking-color {
+    width: 38px;
+    height: 38px;
+    background: url('../imgs/maps/color/parking.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-camera_face-color {
+    width: 38px;
+    height: 38px;
+    background: url('../imgs/maps/color/online/camera_face.png') no-repeat center center;
+    cursor: pointer;
+    background-size: contain;
+  }
+  .marker-school-color {
+  width: 38px;
+  height: 38px;
+  background: url('../imgs/maps/color/school.png') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+
+.marker-garbage-1-color {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/color/online/garbage.png') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-bike-color {
+  width: 38px;
+  height: 38px;
+  background: url('../imgs/maps/color/bike.png') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-security-color {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/color/security.png') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+  /*************风格blue****************/
+/**
+高德地图icon style 在线
+*/
+.marker-camera-1-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/online/camera.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-access-1-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/online/access.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-camera_car-1-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/online/camera_car.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-camera_accessFace-1-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/online/camera_accessFace.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-camera_face-1-blue {
+  width: 38px;
+  height: 38px;
+  background: url('../imgs/maps/blue/online/camera_face.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+/* .marker-elecMeter-1-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/online/elecMeter.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+} */
+.marker-electricArc-1-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/online/electricArc.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+/* .marker-face-1 {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/online/face.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+} */
+.marker-fireCock-1-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/online/fireCock.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-manholeCover-1-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/online/manholeCover.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+/* .marker-resident-1 {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/online/resident.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+} */
+/* .marker-security-1 {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/online/security.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+} */
+.marker-smokeDetector-1-blue {
+  width: 38px;
+  height: 38px;
+  background: url('../imgs/maps/blue/online/smokeDetector.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-geomagnetic-1-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/online/geomagnetic.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-charger-1-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/online/charger.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-combustibleGas-1-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/online/combustibleGas.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-fence_point-1-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/online/fence_point.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+/*
+高德地图icon 离线
+*/
+.marker-camera-0-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/offline/camera.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-access-0-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/offline/access.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-camera_car-0-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/offline/camera_car.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-camera_accessFace-0-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/offline/camera_accessFace.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-camera_face-0-blue {
+  width: 38px;
+  height: 38px;
+  background: url('../imgs/maps/blue/offline/camera_face.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+/* .marker-elecMeter-0-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/offline/elecMeter.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+} */
+.marker-electricArc-0-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/offline/electricArc.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+/* .marker-face-0 {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/offline/face.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+} */
+.marker-fireCock-0-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/offline/fireCock.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-manholeCover-0-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/offline/manholeCover.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+/* .marker-resident-0 {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/offline/resident.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+} */
+/* .marker-security-0 {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/offline/security.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+} */
+.marker-smokeDetector-0-blue {
+  width: 38px;
+  height: 38px;
+  background: url('../imgs/maps/blue/offline/smokeDetector.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-geomagnetic-0-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/offline/geomagnetic.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-charger-0-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/offline/charger.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-combustibleGas-0-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/offline/combustibleGas.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-fence_point-0-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/offline/fence_point.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+/*
+高德地图icon 故障
+*/
+.marker-camera-2-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/broken/camera.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-access-2-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/broken/access.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-camera_car-2-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/broken/camera_car.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-camera_accessFace-2-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/broken/camera_accessFace.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-camera_face-2-blue {
+  width: 38px;
+  height: 38px;
+  background: url('../imgs/maps/blue/broken/camera_face.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+/* .marker-elecMeter-2-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/broken/elecMeter.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+} */
+.marker-electricArc-2-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/broken/electricArc.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+/* .marker-face-2-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/broken/face.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+} */
+.marker-fireCock-2-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/broken/fireCock.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-manholeCover-2-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/broken/manholeCover.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+/* .marker-resident-2 {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/broken/resident.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+} */
+/* .marker-security-2 {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/broken/security.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+} */
+.marker-smokeDetector-2-blue {
+  width: 38px;
+  height: 38px;
+  background: url('../imgs/maps/blue/broken/smokeDetector.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-geomagnetic-2-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/broken/geomagnetic.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-charger-2-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/broken/charger.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-combustibleGas-2-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/broken/combustibleGas.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-fence_point-2-blue {
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/broken/fence_point.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-building-blue{
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/maps/blue/building.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+.marker-parking-blue {
+  width: 38px;
+  height: 38px;
+  background: url('../imgs/maps/blue/parking.svg') no-repeat center center;
+  cursor: pointer;
+  background-size: contain;
+}
+  /*缩放闪烁*/
+  @keyframes warn {
+    0% {
+        transform: scale(0);
+        opacity: 0.0;
+    }
+    25% {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(0.1);
+        opacity: 0.7;
+    }
+    75% {
+        transform: scale(0.5);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.0;
+    }
+}
+@-webkit-keyframes warn {
+    0% {
+        -webkit-transform: scale(0);
+        opacity: 0.0;
+    }
+    25% {
+        -webkit-transform: scale(0);
+        opacity: 0.5;
+    }
+    50% {
+        -webkit-transform: scale(0.1);
+        opacity: 0.7;
+    }
+    75% {
+        -webkit-transform: scale(0.5);
+        opacity: 0.9;
+    }
+    100% {
+        -webkit-transform: scale(1);
+        opacity: 0.0;
+    }
+}
+
+  .pulse {
+    position: absolute;
+    width: 88px;
+    height: 88px;
+    left:-29px;
+    top:-30px;
+    /* border: 6px solid red; */
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    border-radius: 60px;
+    z-index: 2;
+    opacity: 1;
+    -webkit-animation: warn 2s ease-out;
+    -moz-animation: warn 2s ease-out;
+    animation: warn 2s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    background: radial-gradient(red, rgba(255,0,0,0.8), rgba(255,0,0,0.1));
+}
+.leaflet-pulse-icon{
+
+}
+.textContainer{
+  display: block;
+    width: auto !important;
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: rgb(9, 30, 56);
+    padding: 10px;
+    color: white;
+    min-width:30px;
+    line-height:15px;
+    font-size:14px;
+}
+.wave {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  cursor: pointer;
+  display: block;
+  position: relative;
+}
+
+.wave:after {
+  content: '';
+  position: absolute;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  /* box-shadow: 0 0 1px 2px red; */
+  top: 50%;
+  left: 50%;
+  margin-top: -44px;
+  margin-left: -44px;
+  z-index: 3;
+  opacity: 0;
+  -webkit-animation: halo 1.5s 0s infinite ease-out;
+  -moz-animation: halo 1.5s 0s infinite ease-out;
+  animation: halo 1.5s 0s infinite ease-out;
+  background: -webkit-radial-gradient(rgba(255, 0, 0, 1) 10%, rgba(255, 0, 0, 0));
+  background: -o-radial-gradient(rgba(255, 0, 0, 1) 10%, rgba(255, 0, 0, 0));
+  background: -moz-radial-gradient(rgba(255, 0, 0, 1) 10%, rgba(255, 0, 0, 0));
+  background: radial-gradient(rgba(255, 0, 0, 1) 10%, rgba(255, 0, 0, 0));
+}
+
+.wave:before {
+  background: -webkit-radial-gradient(rgba(255, 0, 0, 1) 10%, rgba(255, 0, 0, 0));
+  background: -o-radial-gradient(rgba(255, 0, 0, 1) 10%, rgba(255, 0, 0, 0));
+  background: -moz-radial-gradient(rgba(255, 0, 0, 1) 10%, rgba(255, 0, 0, 0));
+  background: radial-gradient(rgba(255, 0, 0, 1) 10%, rgba(255, 0, 0, 0));
+  content: '';
+  position: absolute;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  margin-top: -44px;
+  margin-left: -44px;
+  z-index: 3;
+  opacity: 0;
+  -webkit-animation: halo 1.5s 0.5s infinite ease-out;
+  -moz-animation: halo 1.5s 0.5s infinite ease-out;
+  animation: halo 1.5s 0.5s infinite ease-out;
+}
+
+@-webkit-keyframes halo {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.4);
+  }
+
+  10% {
+    opacity: 0;
+    -webkit-transform: scale(0.4);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1.2);
+  }
+}
+
+@-moz-keyframes halo {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.4);
+  }
+
+  10% {
+    opacity: 0;
+    -webkit-transform: scale(0.4);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -moz-transform: scale(1.2);
+  }
+}
+
+@-ms-keyframes halo {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.4);
+  }
+
+  10% {
+    opacity: 0;
+    -webkit-transform: scale(0.4);
+  }
+
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-o-keyframes halo {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.4);
+  }
+
+  10% {
+    opacity: 0;
+    -webkit-transform: scale(0.4);
+  }
+
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -o-transform: scale(1.2);
+  }
+}
+
+@keyframes halo {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.4);
+  }
+
+  10% {
+    opacity: 0;
+    -webkit-transform: scale(0.4);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}

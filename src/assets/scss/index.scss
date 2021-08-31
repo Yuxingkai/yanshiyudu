@@ -1,0 +1,33 @@
+// 文字颜色
+$base_color: rgba(40, 191, 255, 1);
+$header_title: 0.52rem;
+// body背景色
+$bg_color: rgb(4, 11, 34);
+// 菜单颜色 -- 从上至下渐变
+$bg_header: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
+// UIKIT组件颜色
+$uikit_color: rgba(3, 3, 3, 0.6);
+// 自定义遮罩层颜色
+$zz_bg: rgba(0, 0, 0, 0.5);
+// 卡片标准16px字体
+$font_normal: 0.32rem;
+// 顶部菜单字体大小
+$headMenusFontsize: 0.36rem;
+// 字重 500
+$weight_500: 500;
+// 动画transition  块状缩进
+$transition_6: all 0.6s ease;
+// 图形hover缩放效果 .4S
+$transition_4: all 0.4s ease;
+// echart图标题颜色 大小  子重
+$echart_color: #fff;
+$echart_size: 0.36rem;
+$echart_weight: 500;
+// 左右两侧高地调整
+$aside_height: calc(100% - 140px);
+// 浮层弹窗主要字体颜色
+$floatDialog_FontColor: rgba(255, 255, 255, 1);
+// 浮窗tag字体颜色
+$floatDialog_TagFontColor: rgba(220, 246, 255, 1);
+// input的placeholder字体颜色
+$input_placrHolder_FontColor: rgba(84, 120, 162, 1);

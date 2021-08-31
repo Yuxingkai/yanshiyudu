@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 10.765 15.36">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-2 {
+        filter: url(#Pin_-_alt);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="0.5" y1="1" x2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="aqua"/>
+      <stop offset="1" stop-color="#e4f2f7"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <filter id="Pin_-_alt" x="0" y="0" width="10.765" height="15.36" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur result="blur"/>
+      <feFlood flood-color="#112445"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="_9" data-name="9" transform="translate(-702.534 -1773.833)">
+    <g class="cls-2" transform="matrix(1, 0, 0, 1, 702.53, 1773.83)">
+      <path id="Pin_-_alt-2" data-name="Pin - alt" class="cls-1" d="M5.382,14.36c-.056-.062-1.375-1.542-2.691-3.372A24,24,0,0,1,.841,8.042,6.256,6.256,0,0,1,0,5.385,5.382,5.382,0,0,1,9.188,1.577a5.349,5.349,0,0,1,1.577,3.808,6.262,6.262,0,0,1-.841,2.657,24.071,24.071,0,0,1-1.851,2.946c-1.315,1.83-2.635,3.31-2.691,3.372h0ZM1.8,5.384A3.587,3.587,0,1,0,5.383,1.792,3.593,3.593,0,0,0,1.8,5.384Zm1.793,0A1.793,1.793,0,1,1,5.383,7.177,1.794,1.794,0,0,1,3.589,5.384Z" transform="translate(0)"/>
+    </g>
+  </g>
+</svg>

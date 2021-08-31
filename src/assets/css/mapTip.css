@@ -1,0 +1,388 @@
+/*陌生人*/
+.map-bubbleStranger-esri {
+  width: 310px;
+  height: 187px;
+  margin: 2px auto;
+  background: url("../imgs/situation/stranger_contrast.png") no-repeat left top;
+  background-size: 100%;
+}
+.map-bubbleStranger-gd {
+  width: 310px;
+  height: 187px;
+  background: url("../imgs/situation/stranger_contrast.png") no-repeat left top;
+  background-size: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.map-bubbleStranger-gd h3,
+p {
+  margin: 0;
+}
+.map-bubbleSharp {
+  display: none;
+  width: 36px;
+  height: 18px;
+  margin: 10px auto 0 auto;
+  background: url("../imgs/arrow_b.svg") no-repeat center center;
+  position: absolute;
+  left: 44%;
+  bottom: -12%;
+}
+.map-BubbleImg {
+  width: 100%;
+  height: 100%;
+}
+.map-bubbleStranger-gd h2 {
+  display: none;
+  font-size: 12px;
+  height: 20px;
+  color: #fff;
+  text-align: left;
+  box-sizing: border-box;
+  padding: 10px;
+}
+.map-bubbleStranger-esri h2 {
+  font-size: 12px;
+  height: 20px;
+  color: #fff;
+  text-align: left;
+  box-sizing: border-box;
+  padding: 10px;
+}
+.map-capturePic {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 10px 0;
+  overflow: hidden;
+}
+.map-capturePic .left {
+  float: left;
+  width: 128px;
+}
+.map-capturePic .left h3 {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.map-capturePic .left p {
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+  color: #c4f1ff;
+  padding-top: 0.1rem;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.map-tv-1 {
+  width: 128px;
+  height: 90px;
+  margin: 0 auto;
+  /*background:url("../imgs/tv_window.svg") no-repeat center;*/
+  box-sizing: border-box;
+  padding-top: 6px;
+}
+.map-tv-1 div {
+  width: 68px;
+  margin: 0 auto;
+  height: 78px;
+  background: #000;
+}
+.map-tv-2 {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding-top: 6px;
+}
+.map-tv-2 div {
+  width: 68px;
+  margin: 0 auto;
+  height: 78px;
+  background: #000;
+}
+.map-capturePic .middle {
+  float: left;
+  width: 54px;
+  color: #fff;
+  height: 100%;
+  text-align: center;
+  padding-top: 34px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-left: -0.1rem;
+}
+.map-capturePic .middle span {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffe579;
+}
+.map-capturePic .right {
+  float: left;
+  width: 128px;
+  margin-left: 0.1rem;
+}
+.map-capturePic .right h3 {
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+}
+.map-capturePic .right p {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  color: #c4f1ff;
+  padding-top: 0.1rem;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/*视频*/
+.esriPopup .titleButton.maximize {
+  display: none;
+}
+.titleButton.close {
+  display: none;
+}
+.map-bubbleVideo-esri {
+  width: 510px;
+  height: 320px;
+  background: url("../imgs/bubble_video2.svg") no-repeat left top;
+  background-size: 510px;
+}
+.map-bubbleVideo-gd {
+  width: 510px;
+  height: 320px;
+  background: url("../imgs/bubble_video2.svg") no-repeat left top;
+  background-size: 510px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.map-bubbleVideo-gd h2 {
+  font-size: 14px;
+  font-weight: normal;
+  height: 35px;
+  line-height: 35px;
+  color: #fff;
+  text-align: center;
+}
+.map-bubbleVideo-esri h2 {
+  font-size: 14px;
+  font-weight: normal;
+  height: 35px;
+  line-height: 35px;
+  color: #fff;
+  text-align: center;
+}
+.map-video {
+  width: 470px;
+  height: 252px;
+  background: #000;
+  margin: 10px auto;
+}
+.map-bubbleSharpVideo {
+  width: 36px;
+  height: 18px;
+  margin: 20px auto 0 auto;
+  background: url("../imgs/arrow_b.svg") no-repeat center center;
+}
+/*车辆*/
+.map-bubbleCar-esri {
+  width: 342px;
+  height: 112px;
+  overflow: hidden;
+  background: url("../imgs/situation/cars_contrast.png") no-repeat;
+  background-size: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.map-bubbleCar-gd {
+  width: 342px;
+  height: 112px;
+  overflow: hidden;
+  background: url("../imgs/situation/cars_contrast.png") no-repeat;
+  background-size: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.map-bubbleCar_m {
+  width: 220px;
+  margin: 20px auto;
+  overflow: hidden;
+  position: relative;
+}
+.map-bubbleCar_m-gd {
+  width: 341px;
+  margin: 12px auto;
+  overflow: hidden;
+}
+.map-bubbleCar_m > div {
+  width: 128px;
+  height: 86px;
+  float: left;
+}
+.map-bubbleCar_m .map-tv {
+  background: url("../imgs/tv_window.svg") no-repeat center;
+}
+.map-bubbleCar_m .map-tv div {
+  width: 120px;
+  height: 77px;
+  margin: 5px auto;
+}
+.map-bubbleCar_m .map-tv div img {
+  width: 100%;
+  height: 100%;
+}
+.map-bubbleCar_m .map-cotent {
+  width: 125px;
+  box-sizing: border-box;
+  padding: 8px 0 0 10px;
+}
+.map-bubbleCar_m .map-cotent p {
+  color: #c4f1ff;
+  font-size: 14px;
+  line-height: 25px;
+  margin: 0;
+}
+.map-cotent span {
+  color: #00ffad;
+  font-size: 18px;
+  line-height: 20px;
+  display: inline-block;
+  height: 18px;
+  width: 52px;
+  text-align: center;
+  position: absolute;
+  top: 41%;
+  right: 8%;
+}
+.map-arrow {
+  display: none;
+  /* margin: 18px auto 0 auto; */
+  position: absolute;
+  bottom: -1%;
+  left: 46%;
+  width: 30px;
+  height: 14px;
+  background: url("../imgs/arrow_b.svg");
+}
+.map-pop-mouse {
+  cursor: auto;
+}
+/*esri*/
+.esriPopup .pointer,
+.esriPopup .outerPointer {
+  background: url("../imgs/arrow_s.svg") no-repeat left top !important;
+  display: none;
+  height: 16px !important;
+  position: absolute;
+  width: 26px !important;
+  z-index: 0;
+  box-shadow: 0 0 0em #777777;
+  -webkit-box-shadow: 0 0 0em #777777 !important;
+  transform: rotate(0deg) !important;
+}
+.esriPopup .contentPane {
+  background: transparent !important;
+  padding: 0 !important;
+  max-height: 350px !important;
+}
+.esriPopup .sizer {
+  position: relative;
+  width: 100% !important;
+  z-index: 1;
+}
+.esriPopup .pointer.topLeft {
+  top: -15px !important;
+  transform: rotate(180deg) !important;
+}
+.esriPopup .pointer.topRight {
+  top: -15px !important;
+  transform: rotate(180deg) !important;
+}
+.esriPopup .pointer.top {
+  top: -15px !important;
+  transform: rotate(180deg) !important;
+}
+.esriPopup .outerPointer.left {
+  left: -6px !important;
+  transform: rotate(90deg) !important;
+}
+.esriPopup .outerPointer.right {
+  right: -4px !important;
+  transform: rotate(-90deg) !important;
+}
+.esriPopup .pointer.bottom {
+  bottom: -15px !important;
+}
+.esriPopup .pointer.bottomRight {
+  bottom: -15px !important;
+  width: 50px !important;
+}
+.esriPopup .pointer.bottomLeft {
+  bottom: -15px !important;
+}
+.esriPopup .actionsPane {
+  display: none;
+}
+.esriPopup .esriPopupWrapper {
+  -webkit-box-shadow: 0 0 0em #ffffff !important;
+}
+/*Imap*/
+.imap-container a.imap-popup-close-button {
+  display: none;
+}
+.imap-window-title {
+  display: none;
+}
+.imap-window-content {
+  position: relative;
+  font-size: 12px;
+  left: 5px;
+  top: 0px;
+  overflow: hidden !important;
+}
+.imap-popup .imap-popup-content-wrapper {
+  background: transparent;
+  color: #333;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+}
+.imap-window-content {
+  height: 100% !important;
+  width: 100% !important;
+}
+.imap-popup-content .imap-window {
+  bottom: 18px;
+  width: 515px !important;
+  background: transparent;
+  left: 50%;
+  transform: translateX(-50%);
+
+  right: 5px;
+}
+.imap-popup-content-wrapper .imap-popup-content p {
+  margin: 0;
+}
+.imap-popup-tip-container {
+  background: url("../imgs/arrow_b.svg") no-repeat center center;
+}
+.imap-popup-tip-container .imap-popup-tip {
+  background: transparent;
+}
+.imap-popup {
+  position: relative;
+}
