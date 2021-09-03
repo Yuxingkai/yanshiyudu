@@ -227,11 +227,35 @@
                       <div class="line">
                         <div>
                           <span>所属项目: </span>
-                          <a-input style="width: 2.6rem;" placeholder="" />
+                          <a-select
+                            style="width: 2.3rem;margin-right: .3rem;"
+                            allowClear
+                            show-search
+                            :filter-option="filterOption"
+                            @change="handleChangeXM"
+                            placeholder="项目名称"
+                            v-model="addYushuikouForm.proId"
+                            :getPopupContainer= "(target) => target.parentNode">
+                            <a-select-option v-for="(role,roleindex) in xmNameArr" :key="roleindex.toString()" :value="role.id">
+                              {{ role.xmmc }}
+                            </a-select-option>
+                          </a-select>
                         </div>
                         <div>
-                          <span>所属工程: </span>
-                          <a-input style="width: 2.6rem;" placeholder="" />
+                           <span>所属工程: </span>
+                          <a-select
+                            style="width: 2.3rem"
+                            allowClear
+                            show-search
+                            :filter-option="filterOptiongc"
+                            placeholder="工程名称"
+                            optionFilterProp = "children"
+                            v-model="addYushuikouForm.gcId"
+                            :getPopupContainer= "(target) => target.parentNode">
+                            <a-select-option v-for="(role,roleindex) in gcNameArr" :key="roleindex.toString()" :value="role.gcid">
+                              {{ role.gcName }}
+                            </a-select-option>
+                          </a-select>
                         </div>
                       </div>
                       <div class="line">
@@ -1416,7 +1440,9 @@ export default {
         remark: null,
         del_flag: 0,
         x_coor: null,
-        y_coor: null
+        y_coor: null,
+        proId: '',
+        gcId: ''
       },
       editPipeForm: {
         inJuncid: '',
@@ -1725,6 +1751,8 @@ export default {
             this.searchForm.proId = res.result[0].id
             this.searchForm.districtId = res.result[0].district_id
             this.searchForm.districtName = res.result[0].district_name
+            this.addYushuikouForm.district_name = res.result[0].district_name
+            this.addYushuikouForm.district_id = res.result[0].district_id
             this.placeholder = res.result[0].district_name
             this.queryBydistrictId(res.result[0].district_id)
             this.getGcByProid(res.result[0].id)
@@ -2582,13 +2610,16 @@ export default {
         remark: item.remark,
         del_flag: 0,
         x_coor: item.xcoor,
-        y_coor: item.ycoor
+        y_coor: item.ycoor,
+        proId: '',
+        gcId: ''
       }
       this.hunjieObj.wellcode = item.combcode
       this.hunjieObj.y_coor = item.ycoor
       this.hunjieObj.x_coor = item.xcoor
       this.placeholder = item.districtName
       this.queryByCode()
+      this.getProid(item.locationcode)
       this.choose(2)
       this.combid = item.combid
       this.chooseobjectid = item.objectid
@@ -2597,6 +2628,12 @@ export default {
     showDetial (item) {
       showInmap(item, 'ps_comb')
       this.actionDo(item)
+    },
+    getProid (locationcode) {
+      this.$get(apiNames['获取工程和项目信息'], {locationcode}).then(res => {
+        this.addYushuikouForm.proId = res.result[0].proId
+        this.addYushuikouForm.gcId = res.result[0].id
+      })
     },
     choose (num) {
       this.chooseNum = num

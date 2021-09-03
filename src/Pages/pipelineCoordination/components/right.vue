@@ -281,11 +281,35 @@
                       <div class="line">
                         <div>
                           <span>所属项目: </span>
-                          <a-input style="width: 2.6rem;" placeholder="" />
+                          <a-select
+                            style="width: 2.3rem;margin-right: .3rem;"
+                            allowClear
+                            show-search
+                            :filter-option="filterOption"
+                            @change="handleChangeXM"
+                            placeholder="项目名称"
+                            v-model="addPipeForm.proId"
+                            :getPopupContainer= "(target) => target.parentNode">
+                            <a-select-option v-for="(role,roleindex) in xmNameArr" :key="roleindex.toString()" :value="role.id">
+                              {{ role.xmmc }}
+                            </a-select-option>
+                          </a-select>
                         </div>
                         <div>
                           <span>所属工程: </span>
-                          <a-input style="width: 2.6rem;" placeholder="" />
+                          <a-select
+                            style="width: 2.3rem"
+                            allowClear
+                            show-search
+                            :filter-option="filterOptiongc"
+                            placeholder="工程名称"
+                            optionFilterProp = "children"
+                            v-model="addPipeForm.gcId"
+                            :getPopupContainer= "(target) => target.parentNode">
+                            <a-select-option v-for="(role,roleindex) in gcNameArr" :key="roleindex.toString()" :value="role.gcid">
+                              {{ role.gcName }}
+                            </a-select-option>
+                          </a-select>
                         </div>
                       </div>
                       <div class="line">
@@ -1137,7 +1161,9 @@ export default {
         road_name: null,
         judge_dispose: 0,
         pipe_pic: '',
-        pipe_juli: ''
+        pipe_juli: '',
+        proId: '',
+        gcId: ''
       },
       addDefetsForm: {
         inJuncid: '',
@@ -1615,6 +1641,8 @@ export default {
             this.searchForm.proId = res.result[0].id
             this.searchForm.districtId = res.result[0].district_id
             this.searchForm.districtName = res.result[0].district_name
+            this.addPipeForm.district_name = res.result[0].district_name
+            this.addPipeForm.district_id = res.result[0].district_id
             this.placeholder = res.result[0].district_name
             this.queryBydistrictId(res.result[0].district_id)
             this.getGcByProid(res.result[0].id)
@@ -3188,7 +3216,9 @@ export default {
         constructi: parseArr.constructi,
         judge_dispose: parseArr.judgeDispose,
         pipe_pic: parseArr.pipePic,
-        pipe_juli: parseArr.pipeJuli
+        pipe_juli: parseArr.pipeJuli,
+        proId: '',
+        gcId: ''
       }
       this.addDefetsForm = {
         inJuncid: '',
@@ -3219,6 +3249,7 @@ export default {
 
       this.nowPipeid = parseArr.pipeid
       this.chooseobjectid = parseArr.objectid
+      this.getProid(item.locationcode)
       searchGraphicByObjectId(item.objectid, 'ps_pipe')
       // this.popShow = true
       this.queryBydistrictId(parseArr.districtId)
@@ -3229,6 +3260,13 @@ export default {
       showInmap(item, 'ps_pipe')
       this.actionDo(item)
       this.choose(2)
+    },
+    getProid (locationcode) {
+      this.$get(apiNames['获取工程和项目信息'], {locationcode}).then(res => {
+        this.addPipeForm.proId = res.result[0].proId
+        this.addPipeForm.gcId = res.result[0].id
+        console.log(this.addPipeForm)
+      })
     },
     choose (num) {
       this.chooseNum = num

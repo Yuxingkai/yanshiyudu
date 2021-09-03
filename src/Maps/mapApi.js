@@ -369,7 +369,7 @@ let initMap = function (extent, container, mParams, callbackEvent) {
 
               
               mapClass.map.on("zoom-end", function(){
-                console.log(mapClass.map.getScale())
+                // console.log(mapClass.map.getScale())
                 globalMapScale = mapClass.map.getScale()
                 if (mapClass.map.getScale()>7000)
                 { 
@@ -756,33 +756,7 @@ let startAnimation = (posList) => {
           
               carLayer = new GraphicsLayer("carLayer");
               mapClass.map.addLayer(carLayer);
-              // let posList = [
-              //   {
-              //     lng: 416173.388,
-              //     lat: 2579730.435,
-              //     name: 'name'
-              //   },
-              //   {
-              //     lng: 416158.885,
-              //     lat: 2579691.585,
-              //     name: 'name1'
-              //   },
-              //   {
-              //     lng: 416168.212,
-              //     lat: 2579686.242,
-              //     name: 'name2'
-              //   },
-              //   {
-              //     lng: 416167.224,
-              //     lat: 2579683.292,
-              //     name: 'name3'
-              //   },
-              //   {
-              //     lng: 416217.92,
-              //     lat: 2579665.312,
-              //     name: 'name4'
-              //   }
-              // ]
+              console.log(posList, 'posListposListposListposListposListposList')
               trajRun(posList)
               // trajRun(posList1, isLine, lineLayer, carLayer, carSymbol)
               // setInterval(() => {
@@ -795,6 +769,25 @@ let startAnimation = (posList) => {
 
   // 绘制线路
 
+}
+
+let justDrawLine = (item) => {
+  esriLoader.loadModules(['esri/geometry/Polyline', 'esri/symbols/SimpleLineSymbol', 'esri/graphic', 'esri/Color']).then(([Polyline, SimpleLineSymbol, Graphic, Color]) => {
+    var path = [[item.startx,item.starty], [item.endx,item.endy]];
+
+    // 生成绘制的图形
+    var polylineJson = {
+        "paths":[path],
+        "spatialReference":{"wkid":4549}
+      };
+    var polyline = new Polyline(polylineJson);
+    let symbol = new SimpleLineSymbol(
+      SimpleLineSymbol.STYLE_SOLID,
+      new Color([255,255,0]),
+      3);
+    var graphic = new Graphic(polyline, symbol);
+    lineLayer.add(graphic);
+  })
 }
 
 let clearGraphicsLayer = () => {
@@ -963,6 +956,10 @@ let trajRun = (posList) => {
                   playTimer = setTimeout(function () {
                       if (carIndex < tmpPoints.length - 1) {
                           carLayer.clear();
+                          // tmpPoints.forEach(item => {
+                          //   let carGriphic = new Graphic(new Point(changePosPoint(item).lng,changePosPoint(item).lat), carSymbol);
+                          //   carLayer.add(carGriphic);
+                          // });
                           var point = changePosPoint(tmpPoints[carIndex + 1]);
                           point = new Point(point.lng,point.lat);
                           var carGriphic = new Graphic(point, carSymbol);
@@ -4822,7 +4819,7 @@ let wgs84ToshCus = function (lon, lat) {
 }
 
 export {
-  initMap, addPointsLayer, addLinesLayer, addPolygonLayer, clearDataLayer, onLayerClick, onClick, onLayerMouseOver, onExtentChange, showName, hideName, setbackExtent, getPointAddress1, getPointAddress2, measureLine, printMap, addQXtoMap, toPositionByobjectid,
+  initMap, addPointsLayer, addLinesLayer, addPolygonLayer, clearDataLayer, onLayerClick, onClick, onLayerMouseOver, onExtentChange, showName, hideName, setbackExtent, getPointAddress1, getPointAddress2, measureLine, printMap, addQXtoMap, toPositionByobjectid, justDrawLine,
   getMapExtent, getDataExtent, baiduToGaode, baiduToWGS84, gaodeToWGS84, gaodeToBaidu, wgs84ToGaode, wgs84ToBaidu, showStranger, showVideo, showCar, closePopup, setShowHideByName, setShowHideByName1, setShowHideByName2, searchDataArr, stGPMdbserver, stGPCadserver, clearGraphicsLayer,
   lonLatToMercator, onLayerMouseOut, searchNearbyObj, setCenterAndZoom, setExtent, hideLayer, showLayer, stopBlinkingObj, startBlinkingObj, setLayerVisibility, getMapZoom, deleteSingleLayer, addFeatureByPoint, deleteFeatureByPoint, addFeatureToMap, searchPointByP, startAnimation, trajRun,
   getLyrByName, insertDataIntoLayer, clearElement, getLayerNamebyVisibility, wgs84ToshCus, getLyrFullName, enableCreatePoly, editLayer, cancelEdit, multiAdd, showInmap, removeGraphics, searchGraphicByObjectId, searchGraphicByObjectIdHunjie, editFeatureByPoint, hunjieShowMap

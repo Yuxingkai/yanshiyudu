@@ -37,12 +37,12 @@
                         追溯模式:
                     </div>
                     <div style="margin-left: 10px;">
-                        <a-radio-group default-value="a" v-model="chooseValue" button-style="solid">
-                            <a-radio-button value="a">
-                                向上
-                            </a-radio-button>
+                        <a-radio-group default-value="b" v-model="chooseValue" button-style="solid">
                             <a-radio-button value="b">
                                 向下
+                            </a-radio-button>
+                            <a-radio-button value="a">
+                                向上
                             </a-radio-button>
                             <a-radio-button value="c">
                                 上下
@@ -93,7 +93,7 @@
                                 <a-checkbox v-model="ltsmall">
                                 </a-checkbox>
                             </div>
-                            <div style="margin-right: .8rem;">1个</div>
+                            <div style="margin-right: .8rem;">{{ DXPipeData.length }}个</div>
                         </div>
                         <div class="questionType_line">
                             <div style="display: flex;align-items: flex-end;margin-left: .3rem;width: 40%;">
@@ -104,7 +104,7 @@
                                 <a-checkbox v-model="npXian">
                                 </a-checkbox>
                             </div>
-                            <div style="margin-right: .8rem;">10个</div>
+                            <div style="margin-right: .8rem;">{{ NpPipeData.length }}个</div>
                         </div>
                         <div class="questionType_line">
                             <div style="display: flex;align-items: flex-end;margin-left: .3rem;width: 40%;">
@@ -115,7 +115,7 @@
                                 <a-checkbox v-model="ywhun">
                                 </a-checkbox>
                             </div>
-                            <div style="margin-right: .8rem;">100个</div>
+                            <div style="margin-right: .8rem;">{{ CategData.length }}个</div>
                         </div>
                     </div>
                 </div>
@@ -139,28 +139,28 @@
                 </div>
               </div>
               <div class="questionArr_content">
-                <div class="questionArr_content_item" v-for="(item, index) in 10" :key="index">
+                <div class="questionArr_content_item" v-for="(item, index) in allListShow" :key="index" @click="chooseOne(item)">
                     <div class="hideTextAndEllipsis" style="width: 142px;">
-                        -
+                        {{ item.wentiType }}
                     </div>
                     <div class="hideTextAndEllipsis" style="width: 116px;">
-                       -
+                       {{ item.pipename1 }}
                     </div>
                     <div class="hideTextAndEllipsis" style="width: 75px;">
                         -
                     </div>
                     <div style="width: 75px;">
-                       -
+                       {{ item.road_name }}
                     </div>
                     <div style="width: 75px;">
-                        -
+                        {{ item.status == 0 ? '未处理' : '已处理' }}
                     </div>
                 </div>
-                <infinite-loading :distance="distance" @infinite="infiniteHandler">
+                <!-- <infinite-loading :distance="distance" @infinite="infiniteHandler">
                     <div slot="spinner">加载中...</div>
                     <div slot="no-more">已加载完毕!</div>
                     <div slot="no-results">暂无数据</div>
-                </infinite-loading>
+                </infinite-loading> -->
               </div>
           </div>
         </div>
@@ -169,7 +169,7 @@
 <script>
 import { apiNames, dictCodebyName } from '../../../Utils/config'
 import { notification, message } from 'ant-design-vue';
-import { startAnimation, trajRun, setCenterAndZoom, clearGraphicsLayer } from '../../../Maps/mapApi'
+import { startAnimation, trajRun, setCenterAndZoom, clearGraphicsLayer, justDrawLine } from '../../../Maps/mapApi'
 const plainOptions = [
   { label: '大管接小管', value: 0 },
   { label: '逆坡', value: 1 },
@@ -187,7 +187,7 @@ export default {
       plainOptions,
       value: [],
       distance: 50,
-      chooseValue: 'a',
+      chooseValue: 'b',
       // 于都演示数据
       posList: [
       ],
@@ -263,9 +263,14 @@ export default {
       suyuanObj: '',
       nextList: [],
       preList: [],
-      ltsmall: false,
+      ltsmall: true,
       npXian: true,
-      ywhun: false,
+      ywhun: true,
+      DXPipeData: [],
+      CategData: [],
+      NpPipeData: [],
+      allListArr: [],
+      allListShow: []
     }
 
   },
@@ -273,7 +278,19 @@ export default {
     //   startAnimation(this.posList)
     this.$bus.off('suyuanclick')
     this.$bus.on('suyuanclick', (e) => {
-        this.suyuanObj = JSON.parse(e).pipename
+        console.log(e)
+        if (JSON.parse(e).pipename !== undefined) {
+            this.suyuanObj = JSON.parse(e).pipename
+        }
+        if (JSON.parse(e).manholecode !== undefined) {
+            this.suyuanObj = JSON.parse(e).manholecode
+        }
+        if (JSON.parse(e).outfallcode !== undefined) {
+            this.suyuanObj = JSON.parse(e).outfallcode
+        }
+        if (JSON.parse(e).combcode !== undefined) {
+            this.suyuanObj = JSON.parse(e).combcode
+        }
         notification.success({ message: '系统提示', description: '已选择，请执行分析'})
         // this.search()
         // startAnimation(this.posList)
@@ -283,29 +300,62 @@ export default {
   components: {
   },
   watch: {
-      chooseValue (newval, oldVal) {
-          clearGraphicsLayer()
-          if (newval == 'a') {
-              if (this.preList.length == 0) {
-                  notification.success({ message: '系统提示', description: '无向上追溯信息'})
-              } else {
-                  startAnimation(this.preList)
-              }
-          } else if (newval == 'b') {
-              if (this.preList.length == 0) {
-                  notification.success({ message: '系统提示', description: '无向下追溯信息'})
-              } else {
-                  startAnimation(this.nextList)
-              }
-          } else if (newval == 'c') {
-              let allArr = this.preList.concat(this.nextList)
-              if (allArr.length == 0) {
-                  notification.success({ message: '系统提示', description: '无追溯信息'})
-              } else {
-                  startAnimation(allArr)
-              }
-          }
-      }
+      ltsmall (newval, oldVal) {
+          this.allListShow = []
+          this.allListArr[0].check = newval
+          let newArr = this.allListArr.filter((item) => {
+              return item.check == true
+          })
+          console.log(newArr)
+          newArr.forEach((oobj) => {
+              this.allListShow = this.allListShow.concat(oobj.list)
+          })
+      },
+      npXian (newval, oldVal) {
+          this.allListShow = []
+          this.allListArr[1].check = newval
+          let newArr = this.allListArr.filter((item) => {
+              return item.check == true
+          })
+          console.log(newArr)
+          newArr.forEach((oobj) => {
+              this.allListShow = this.allListShow.concat(oobj.list)
+          })
+      },
+      ywhun (newval, oldVal) {
+          this.allListShow = []
+          this.allListArr[2].check = newval
+          let newArr = this.allListArr.filter((item) => {
+              return item.check == true
+          })
+          console.log(newArr)
+          newArr.forEach((oobj) => {
+              this.allListShow = this.allListShow.concat(oobj.list)
+          })
+      },
+    //   chooseValue (newval, oldVal) {
+    //       clearGraphicsLayer()
+    //       if (newval == 'a') {
+    //           if (this.preList.length == 0) {
+    //               notification.success({ message: '系统提示', description: '无向上追溯信息'})
+    //           } else {
+    //               startAnimation(this.preList)
+    //           }
+    //       } else if (newval == 'b') {
+    //           if (this.preList.length == 0) {
+    //               notification.success({ message: '系统提示', description: '无向下追溯信息'})
+    //           } else {
+    //               startAnimation(this.nextList)
+    //           }
+    //       } else if (newval == 'c') {
+    //           let allArr = this.preList.concat(this.nextList)
+    //           if (allArr.length == 0) {
+    //               notification.success({ message: '系统提示', description: '无追溯信息'})
+    //           } else {
+    //               startAnimation(allArr)
+    //           }
+    //       }
+    //   }
   },
   created() {
   },
@@ -331,71 +381,162 @@ export default {
         this.nextList = []
         this.preList = []
         clearGraphicsLayer()
+        let vals
+        let param
         if (this.suyuanObj.indexOf('-') !== -1) {
-            let vals = this.suyuanObj.split('-')
-            let param = {
+            vals = this.suyuanObj.split('-')
+            param = {
                 inJuncid: vals[0],
                 outJuncid: vals[1]
             }
-            this.$get(`${apiNames['溯源']}`, param).then(res => {
-                if (res.result.next.length == 0) {
+        } else {
+            param = {
+                inJuncid: this.suyuanObj
+            }
+        }
+        this.$get(`${apiNames['溯源']}`, param).then(res => {
+                if (res.code == 0) {
+                    // 大管接小管
+                    this.DXPipeData = res.result.DXPipeData
+                    this.DXPipeData.forEach((item) => {
+                        item.wentiType = '大管接小管'
+                    })
+                    // 逆坡
+                    this.NpPipeData = res.result.NpPipeData
+                    this.NpPipeData.forEach((item) => {
+                        item.wentiType = '逆坡'
+                    })
+                    // 雨污混接
+                    this.CategData = res.result.CategData
+                    this.CategData.forEach((item) => {
+                        item.wentiType = '雨污混接'
+                    })
+                    this.allListArr = [
+                        {
+                            check: true,
+                            list: this.DXPipeData
+                        },
+                        {
+                            check: true,
+                            list: this.NpPipeData
+                        },
+                        {
+                            check: true,
+                            list: this.CategData
+                        }
+                    ]
+                    this.allListShow = this.DXPipeData.concat(this.NpPipeData, this.CategData)
+                    if (res.result.next.length == 0) {
 
-                } else {
-                    if (res.result.next.length == 1) {
-                        this.nextList = [
-                            {
-                                lng: res.result.next[0].startx,
-                                lat: res.result.next[0].starty,
-                                name: elem.pipename1
-                            },
-                            {
-                                lng: res.result.next[0].endx,
-                                lat: res.result.next[0].endy,
-                                name: elem.pipename1
-                            }
-                        ]
                     } else {
-                        res.result.next.forEach(elem => {
-                            this.nextList.push({
-                                lng: elem.startx,
-                                lat: elem.starty,
-                                name: elem.pipename1
-                            })
-                        });
+                        if (res.result.next.length == 1) {
+                            this.nextList = [
+                                {
+                                    lng: res.result.next[0].startx,
+                                    lat: res.result.next[0].starty,
+                                    name: res.result.next[0].pipename1
+                                },
+                                {
+                                    lng: res.result.next[0].endx,
+                                    lat: res.result.next[0].endy,
+                                    name: res.result.next[0].pipename1
+                                }
+                            ]
+                        } else {
+                            res.result.next.forEach(elem => {
+                                this.nextList.push({
+                                    lng: elem.startx,
+                                    lat: elem.starty,
+                                    name: elem.pipename1
+                                })
+                            });
+                        }
                     }
-                }
-                if (res.result.pre.length == 0) {
-                    notification.success({ message: '系统提示', description: '无向上追溯信息'})
-                } else {
-                    if (res.result.pre.length == 1) {
-                        this.preList = [
-                            {
-                                lng: res.result.pre[0].startx,
-                                lat: res.result.pre[0].starty,
-                                name: elem.pipename1
-                            },
-                            {
-                                lng: res.result.pre[0].endx,
-                                lat: res.result.pre[0].endy,
-                                name: elem.pipename1
-                            }
-                        ]
+                    if (res.result.pre.length == 0) {
+                        // notification.success({ message: '系统提示', description: '无向上追溯信息'})
                     } else {
-                        res.result.pre.forEach(elem => {
-                            this.preList.unshift({
-                                lng: elem.startx,
-                                lat: elem.starty,
-                                name: elem.pipename1
-                            })
-                        });
+                        if (res.result.pre.length == 1) {
+                            this.preList = [
+                                {
+                                    lng: res.result.pre[0].startx,
+                                    lat: res.result.pre[0].starty,
+                                    name: res.result.pre[0].pipename1
+                                },
+                                {
+                                    lng: res.result.pre[0].endx,
+                                    lat: res.result.pre[0].endy,
+                                    name: res.result.pre[0].pipename1
+                                }
+                            ]
+                        } else {
+                            res.result.pre.forEach(elem => {
+                                this.preList.unshift({
+                                    lng: elem.startx,
+                                    lat: elem.starty,
+                                    name: elem.pipename1
+                                })
+                            });
+                        }
                     }
-                    setCenterAndZoom(res.result.pre[0].startx, res.result.pre[0].starty, 1)
-                    startAnimation(this.preList)
+
+                    if (this.chooseValue == 'a') {
+                        if (this.preList.length == 0) {
+                            notification.success({ message: '系统提示', description: '无向上追溯信息'})
+                        } else {
+                            setCenterAndZoom(res.result.pre[0].startx, res.result.pre[0].starty, 1)
+                            clearGraphicsLayer()
+                            res.result.pre.forEach((item) => {
+                                justDrawLine(item)
+                            })
+                            // startAnimation(this.preList)
+                        }
+                        console.log('zoua')
+                    } else if (this.chooseValue == 'b') {
+                        console.log('zoub')
+                        if (this.nextList.length == 0) {
+                            notification.success({ message: '系统提示', description: '无向下追溯信息'})
+                        } else {
+                            setCenterAndZoom(res.result.next[0].startx, res.result.next[0].starty, 1)
+                            startAnimation(this.nextList)
+                        }
+                    } else {
+                        console.log('zouc')
+                        let pList = res.result.pre
+                        let nList = res.result.next
+                        // res.result.pre.forEach(elem => {
+                        //     pList.unshift({
+                        //         lng: elem.startx,
+                        //         lat: elem.starty,
+                        //         name: elem.pipename1
+                        //     })
+                        // });
+                        // res.result.next.forEach(elem => {
+                        //     nList.push({
+                        //         lng: elem.startx,
+                        //         lat: elem.starty,
+                        //         name: elem.pipename1
+                        //     })
+                        // });
+                        let allArr = pList.concat(nList)
+                        console.log(allArr)
+                        if (allArr.length == 0) {
+                            notification.success({ message: '系统提示', description: '无追溯信息'})
+                        } else {
+                            setCenterAndZoom(allArr[0].startx, allArr[0].starty, 1)
+                            clearGraphicsLayer()
+                            allArr.forEach((item) => {
+                                justDrawLine(item)
+                            })
+                            // startAnimation(allArr)
+                        }
+                    }
+                } else {
+                    notification.success({ message: '系统提示', description: res.message})
                 }
             })
-        } else {
-            notification.success({ message: '系统提示', description: '请输入正确的格式'})
-        }
+    },
+    chooseOne (item) {
+        setCenterAndZoom(item.startx, item.starty, 1)
     }
   },
   beforeDestroy() {

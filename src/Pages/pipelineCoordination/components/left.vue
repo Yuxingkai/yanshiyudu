@@ -122,7 +122,7 @@ import jschardet from 'jschardet';
 import { apiNames } from '../../../Utils/config'
 import { guid } from '../../../Utils/Com'
 import { setShowHideByName, stGPserver, searchPointByP, deleteSingleLayer, editLayer, cancelEdit, multiAdd, setShowHideByName1, setShowHideByName2, addFeatureToMap } from '../../../Maps/mapApi.js'
-import {notification} from 'ant-design-vue'
+import {notification, message} from 'ant-design-vue'
 export default {
   name: 'left',
   data() {
@@ -305,57 +305,79 @@ export default {
       return encoding
     },
     importCsv(){
-      let selectedFile = null
-      selectedFile = this.$refs.refFile.files[0];
-      if (selectedFile === undefined){
-        return
+      if (this.nowSelectValue == 2) {
+        let selectedFile = null
+        selectedFile = this.$refs.refFile.files[0];
+        const hide = message.loading({ content: '正在导入', duration: 0 });
+        let formData = new FormData();
+        formData.append('file', selectedFile);
+        this.$post(apiNames['后端批量导入检查井'], formData).then(res => {
+          hide()
+          message.success({ content: '批量导入成功!', duration: 2 })
+        })
+      } else if (this.nowSelectValue == 1) {
+        let selectedFile = null
+        selectedFile = this.$refs.refFile.files[0];
+        const hide = message.loading({ content: '正在导入', duration: 0 });
+        let formData = new FormData();
+        formData.append('file', selectedFile);
+        this.$post(apiNames['后端批量导入雨水口'], formData).then(res => {
+          hide()
+          message.success({ content: '批量导入成功!', duration: 2 })
+        })
+      } else {
+        let selectedFile = null
+        selectedFile = this.$refs.refFile.files[0];
+        if (selectedFile === undefined){
+          return
+        }
+        var reader = new FileReader();
+        reader.readAsDataURL(selectedFile);
+        reader.onload = evt => {
+          const data = evt.target.result
+          console.log(data, '获取的文件件');
+          const encoding = this.checkEncoding(data)
+          // console.log(encoding);
+          // 转换成二维数组，需要引入Papaparse.js
+          // 将csv转换成二维数组
+          Papa.parse(selectedFile, {
+            encoding: encoding,
+            header: true,
+            complete: async res => {
+              // UTF8 \r\n与\n混用时有可能会出问题
+              let data = res.data;
+              data.pop();
+              let filtArr = await this.groupByjuncid(data)
+              filtArr[0].map((item) => {
+                if (this.nowSelectValue == 0) {
+                    item.outfallid = 'A04' + guid()
+                } else if (this.nowSelectValue == 1) {
+                    item.combid = 'A02' + guid()
+                } else if (this.nowSelectValue == 2) {
+                    item.manholeid = 'A03' + guid()
+                } else {
+                    item.pipeid = 'A01' + guid()
+                }
+                item.objectid = Number(item.objectid)
+              })
+              filtArr[1].map((item) => {
+                // if (this.nowSelectValue == 0) {
+                //     item.outfallid = 'A04' + guid()
+                // } else if (this.nowSelectValue == 1) {
+                //     item.combid = 'A02' + guid()
+                // } else if (this.nowSelectValue == 2) {
+                //     item.manholeid = 'A03' + guid()
+                // } else {
+                //     item.pipeid = 'A01' + guid()
+                // }
+                item.objectid = Number(item.objectid)
+              })
+              multiAdd(filtArr, this.nowSelectValue)
+              console.log(filtArr);  // data就是文件里面的数据
+            }
+          });
+        };
       }
-      var reader = new FileReader();
-      reader.readAsDataURL(selectedFile);
-      reader.onload = evt => {
-        const data = evt.target.result
-        console.log(data, '获取的文件件');
-        const encoding = this.checkEncoding(data)
-        // console.log(encoding);
-        // 转换成二维数组，需要引入Papaparse.js
-        // 将csv转换成二维数组
-        Papa.parse(selectedFile, {
-          encoding: encoding,
-          header: true,
-          complete: async res => {
-            // UTF8 \r\n与\n混用时有可能会出问题
-            let data = res.data;
-            data.pop();
-            let filtArr = await this.groupByjuncid(data)
-            filtArr[0].map((item) => {
-              if (this.nowSelectValue == 0) {
-                  item.outfallid = 'A04' + guid()
-              } else if (this.nowSelectValue == 1) {
-                  item.combid = 'A02' + guid()
-              } else if (this.nowSelectValue == 2) {
-                  item.manholeid = 'A03' + guid()
-              } else {
-                  item.pipeid = 'A01' + guid()
-              }
-              item.objectid = Number(item.objectid)
-            })
-            filtArr[1].map((item) => {
-              // if (this.nowSelectValue == 0) {
-              //     item.outfallid = 'A04' + guid()
-              // } else if (this.nowSelectValue == 1) {
-              //     item.combid = 'A02' + guid()
-              // } else if (this.nowSelectValue == 2) {
-              //     item.manholeid = 'A03' + guid()
-              // } else {
-              //     item.pipeid = 'A01' + guid()
-              // }
-              item.objectid = Number(item.objectid)
-            })
-            multiAdd(filtArr, this.nowSelectValue)
-            console.log(filtArr);  // data就是文件里面的数据
-          }
-        });
-      };
     },
     groupByjuncid (data) {
       let params = {

@@ -169,11 +169,35 @@
                       <div class="line">
                         <div>
                           <span>所属项目: </span>
-                          <a-input style="width: 2.6rem;" placeholder="" />
+                          <a-select
+                            style="width: 2.3rem;margin-right: .3rem;"
+                            allowClear
+                            show-search
+                            :filter-option="filterOption"
+                            @change="handleChangeXM"
+                            placeholder="项目名称"
+                            v-model="huafenchiObj.proId"
+                            :getPopupContainer= "(target) => target.parentNode">
+                            <a-select-option v-for="(role,roleindex) in xmNameArr" :key="roleindex.toString()" :value="role.id">
+                              {{ role.xmmc }}
+                            </a-select-option>
+                          </a-select>
                         </div>
                         <div>
                           <span>所属工程: </span>
-                          <a-input style="width: 2.6rem;" placeholder="" />
+                          <a-select
+                            style="width: 2.3rem"
+                            allowClear
+                            show-search
+                            :filter-option="filterOptiongc"
+                            placeholder="工程名称"
+                            optionFilterProp = "children"
+                            v-model="huafenchiObj.gcId"
+                            :getPopupContainer= "(target) => target.parentNode">
+                            <a-select-option v-for="(role,roleindex) in gcNameArr" :key="roleindex.toString()" :value="role.gcid">
+                              {{ role.gcName }}
+                            </a-select-option>
+                          </a-select>
                         </div>
                       </div>
                       <div class="line">
@@ -345,7 +369,9 @@ export default {
           codeid: null,
           record__date: null,
           report_date: null,
-          remark: null
+          remark: null,
+          proId: '',
+          gcId: ''
       },
       defaultValue: [],
       placeholder: '',
@@ -905,7 +931,9 @@ export default {
           codeid: item.codeid,
           record__date: item.recordDate,
           report_date: item.reportDate,
-          remark: item.remark
+          remark: item.remark,
+          proId: '',
+          gcId: ''
       },
       // this.hunjieObj.manjing = item.manholecode
       // this.hunjieObj.y_coor = item.ycoor
@@ -913,6 +941,8 @@ export default {
       this.septictankid = parseArr.septictankid
       this.chooseobjectid = parseArr.objectid
       this.choose(2)
+      
+      this.getProid(item.locationcode)
       searchGraphicByObjectId(item.objectid, 'ps_septictank')
       // this.popShow = true
       this.queryPipeQxList()
@@ -920,6 +950,12 @@ export default {
     showDetial (item) {
       showInmap(item, 'ps_septictank')
       this.actionDo(item)
+    },
+    getProid (locationcode) {
+      this.$get(apiNames['获取工程和项目信息'], {locationcode}).then(res => {
+        this.huafenchiObj.proId = res.result[0].proId
+        this.huafenchiObj.gcId = res.result[0].id
+      })
     },
     choose (num) {
       this.chooseNum = num

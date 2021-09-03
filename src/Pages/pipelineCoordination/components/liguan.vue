@@ -215,11 +215,35 @@
                       <div class="line">
                         <div>
                           <span>所属项目: </span>
-                          <a-input style="width: 2.6rem;" placeholder="" />
+                          <a-select
+                            style="width: 2.3rem;margin-right: .3rem;"
+                            allowClear
+                            show-search
+                            :filter-option="filterOption"
+                            @change="handleChangeXM"
+                            placeholder="项目名称"
+                            v-model="liguanObj.proId"
+                            :getPopupContainer= "(target) => target.parentNode">
+                            <a-select-option v-for="(role,roleindex) in xmNameArr" :key="roleindex.toString()" :value="role.id">
+                              {{ role.xmmc }}
+                            </a-select-option>
+                          </a-select>
                         </div>
                         <div>
                           <span>所属工程: </span>
-                          <a-input style="width: 2.6rem;" placeholder="" />
+                          <a-select
+                            style="width: 2.3rem"
+                            allowClear
+                            show-search
+                            :filter-option="filterOptiongc"
+                            placeholder="工程名称"
+                            optionFilterProp = "children"
+                            v-model="liguanObj.gcId"
+                            :getPopupContainer= "(target) => target.parentNode">
+                            <a-select-option v-for="(role,roleindex) in gcNameArr" :key="roleindex.toString()" :value="role.gcid">
+                              {{ role.gcName }}
+                            </a-select-option>
+                          </a-select>
                         </div>
                       </div>
                       <div class="line">
@@ -470,7 +494,9 @@ export default {
           report_unit: null,
           report_date: null,
           construction_date: null,
-          remark: null
+          remark: null,
+          proId: '',
+          gcId: ''
       },
       defaultValue: [],
       placeholder: '',
@@ -796,6 +822,8 @@ export default {
             this.searchForm.proId = res.result[0].id
             this.searchForm.districtId = res.result[0].district_id
             this.searchForm.districtName = res.result[0].district_name
+            this.liguanObj.district_id = res.result[0].district_id
+            this.liguanObj.district_name = res.result[0].district_name
             this.placeholder = res.result[0].district_name
             this.queryBydistrictId(res.result[0].district_id)
             this.getGcByProid(res.result[0].id)
@@ -1123,7 +1151,9 @@ export default {
           report_unit: item.reportUnit,
           report_date: item.reportDate,
           construction_date: item.constructionDate,
-          remark: item.remark
+          remark: item.remark,
+          proId: '',
+          gcId: ''
       },
       // this.hunjieObj.risercode = item.risercode
       // this.hunjieObj.y_coor = item.ycoor
@@ -1131,6 +1161,7 @@ export default {
       this.riserid = parseArr.riserid
       this.chooseobjectid = parseArr.objectid
       this.choose(2)
+      this.getProid(item.locationcode)
       searchGraphicByObjectId(item.objectid, 'ps_riser')
       // this.popShow = true
       // this.queryPipeQxList()
@@ -1138,6 +1169,12 @@ export default {
     showDetial (item) {
       showInmap(item, 'ps_riser')
       this.actionDo(item)
+    },
+    getProid (locationcode) {
+      this.$get(apiNames['获取工程和项目信息'], {locationcode}).then(res => {
+        this.liguanObj.proId = res.result[0].proId
+        this.liguanObj.gcId = res.result[0].id
+      })
     },
     choose (num) {
       this.chooseNum = num

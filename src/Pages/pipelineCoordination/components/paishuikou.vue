@@ -280,11 +280,35 @@
                       <div class="line">
                         <div>
                           <span>所属项目: </span>
-                          <a-input style="width: 2.6rem;" placeholder="" />
+                          <a-select
+                            style="width: 2.3rem;margin-right: .3rem;"
+                            allowClear
+                            show-search
+                            :filter-option="filterOption"
+                            @change="handleChangeXM"
+                            placeholder="项目名称"
+                            v-model="addPaishuikouForm.proId"
+                            :getPopupContainer= "(target) => target.parentNode">
+                            <a-select-option v-for="(role,roleindex) in xmNameArr" :key="roleindex.toString()" :value="role.id">
+                              {{ role.xmmc }}
+                            </a-select-option>
+                          </a-select>
                         </div>
                         <div>
                           <span>所属工程: </span>
-                          <a-input style="width: 2.6rem;" placeholder="" />
+                          <a-select
+                            style="width: 2.3rem"
+                            allowClear
+                            show-search
+                            :filter-option="filterOptiongc"
+                            placeholder="工程名称"
+                            optionFilterProp = "children"
+                            v-model="addPaishuikouForm.gcId"
+                            :getPopupContainer= "(target) => target.parentNode">
+                            <a-select-option v-for="(role,roleindex) in gcNameArr" :key="roleindex.toString()" :value="role.gcid">
+                              {{ role.gcName }}
+                            </a-select-option>
+                          </a-select>
                         </div>
                       </div>
                       <div class="line">
@@ -764,7 +788,9 @@ export default {
         normal_lev: null,
         remark: null,
         del_flag: 0,
-        system_code: null
+        system_code: null,
+        proId: '',
+        gcId: ''
       },
       yesOrNo: [
         {
@@ -1116,6 +1142,8 @@ export default {
             this.searchForm.proId = res.result[0].id
             this.searchForm.districtId = res.result[0].district_id
             this.searchForm.districtName = res.result[0].district_name
+            this.addPaishuikouForm.districtName = res.result[0].district_name
+            this.addPaishuikouForm.districtId = res.result[0].district_id
             this.placeholder = res.result[0].district_name
             this.queryBydistrictId(res.result[0].district_id)
             this.getGcByProid(res.result[0].id)
@@ -1719,7 +1747,14 @@ export default {
       this.nowPipeid = parseArr.pipeid
       this.chooseobjectid = parseArr.objectid
       this.popShow = true
+      this.getProid(item.locationcode)
       this.queryPipeQxList()
+    },
+    getProid (locationcode) {
+      this.$get(apiNames['获取工程和项目信息'], {locationcode}).then(res => {
+        this.addPaishuikouForm.proId = res.result[0].proId
+        this.addPaishuikouForm.gcId = res.result[0].id
+      })
     },
     choose (num) {
       this.chooseNum = num

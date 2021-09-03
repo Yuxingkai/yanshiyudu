@@ -107,10 +107,10 @@ export const serverUrlApi = function () {
   // let origin =  hostname + '/yufan'
   let origin = '/yufan'
   // let url = hostname === 'localhost' ? 'https://www.yu-fan.cn:8087/yufan' : origin
-  let url = hostname === 'localhost' ? 'https://www.yu-fan.cn:8085/yufan' : origin  // 于都演示
+  // let url = hostname === 'localhost' ? 'https://www.yu-fan.cn:8085/yufan' : origin  // 于都演示
   // let url = hostname === 'localhost' ? 'https://www.yu-fan.cn:9999' : origin
   // let url = hostname === 'localhost' ? 'http://192.168.3.170:8081/yufan' : origin
-  // let url = hostname === 'localhost' ? 'http://192.168.3.170:8082/yufan' : origin  // 演示s
+  let url = hostname === 'localhost' ? 'http://192.168.3.170:8082/yufan' : origin  // 演示s
   return url
   // return 'http://192.168.3.117:8080/'
 }
@@ -224,7 +224,10 @@ const DefaultApi =  {
   '小区表删除': serverUrl + '/gc/village/delete',
   '道路小区列表查询': serverUrl + '/gc/psRoad/pagelist',
   '项目工程统计': serverUrl + '/gc/pipe/proStatistical',
-  '溯源': serverUrl + '/gc/pipe/traceSource'
+  '溯源': serverUrl + '/gc/pipe/traceSource',
+  '后端批量导入检查井': serverUrl + '/gc/manhole/importExcel?type=pc',
+  '后端批量导入雨水口': serverUrl + '/gc/pscomb/importExcel',
+  '获取工程和项目信息': serverUrl + '/gc/gcroad/queryGcBylocatecode'
 }
 
 export const dictCodebyName = {

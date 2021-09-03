@@ -227,11 +227,35 @@
                       <div class="line">
                         <div>
                           <span>所属项目: </span>
-                          <a-input style="width: 2.6rem;" placeholder="" />
+                          <a-select
+                            style="width: 2.3rem;margin-right: .3rem;"
+                            allowClear
+                            show-search
+                            :filter-option="filterOption"
+                            @change="handleChangeXM"
+                            placeholder="项目名称"
+                            v-model="addJianchaForm.proId"
+                            :getPopupContainer= "(target) => target.parentNode">
+                            <a-select-option v-for="(role,roleindex) in xmNameArr" :key="roleindex.toString()" :value="role.id">
+                              {{ role.xmmc }}
+                            </a-select-option>
+                          </a-select>
                         </div>
                         <div>
                           <span>所属工程: </span>
-                          <a-input style="width: 2.6rem;" placeholder="" />
+                          <a-select
+                            style="width: 2.3rem"
+                            allowClear
+                            show-search
+                            :filter-option="filterOptiongc"
+                            placeholder="工程名称"
+                            optionFilterProp = "children"
+                            v-model="addJianchaForm.gcId"
+                            :getPopupContainer= "(target) => target.parentNode">
+                            <a-select-option v-for="(role,roleindex) in gcNameArr" :key="roleindex.toString()" :value="role.gcid">
+                              {{ role.gcName }}
+                            </a-select-option>
+                          </a-select>
                         </div>
                       </div>
                       <div class="line">
@@ -1258,7 +1282,9 @@ export default {
         antifallin: null,
         bottom_style: null,
         junc_class: null,
-        remark: null
+        remark: null,
+        proId: null,
+        gcId: null
       },
       addDefetsForm: {
         file_relation: '',
@@ -1641,6 +1667,8 @@ export default {
             this.searchForm.proId = res.result[0].id
             this.searchForm.districtId = res.result[0].district_id
             this.searchForm.districtName = res.result[0].district_name
+            this.addJianchaForm.district_name = res.result[0].district_name
+            this.addJianchaForm.district_id = res.result[0].district_id
             this.placeholder = res.result[0].district_name
             this.queryBydistrictId(res.result[0].district_id)
             this.getGcByProid(res.result[0].id)
@@ -2603,6 +2631,8 @@ export default {
         bottom_style: item.bottomStyle,
         junc_class: item.juncClass,
         remark: item.remark,
+        proId: '',
+        gcId: ''
       }
       this.hunjieObj.wellcode = item.manholecode
       // this.hunjieObj.y_coor = item.ycoor
@@ -2611,6 +2641,7 @@ export default {
       this.chooseobjectid = parseArr.objectid
       this.choose(2)
       this.queryByCode()
+      this.getProid(item.locationcode)
       searchGraphicByObjectId(item.objectid, 'ps_manhole')
       // this.popShow = true
       this.queryPipeQxList()
@@ -2618,6 +2649,12 @@ export default {
     showDetial (item) {
       showInmap(item, 'ps_manhole')
       this.actionDo(item)
+    },
+    getProid (locationcode) {
+      this.$get(apiNames['获取工程和项目信息'], {locationcode}).then(res => {
+        this.addJianchaForm.proId = res.result[0].proId
+        this.addJianchaForm.gcId = res.result[0].id
+      })
     },
     queryByCode () {
       let params = {
