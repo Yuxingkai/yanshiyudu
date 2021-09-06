@@ -1268,7 +1268,7 @@ export default {
         manhole_style: null,
         cov_material: null,
         depth: null,
-        surface_el: null,
+        surface_el: '',
         y_coor: null,
         x_coor: null,
         hybjunctio: null,
@@ -1656,6 +1656,8 @@ export default {
       this.searchForm.proId = one.id
       this.searchForm.districtId = one.district_id
       this.searchForm.districtName = one.district_name
+      this.addJianchaForm.district_name = one.district_name
+      this.addJianchaForm.district_id = one.district_id
       this.placeholder = one.district_name
       this.queryBydistrictId(one.district_id)
       this.getGcByProid(one.id)
@@ -2309,7 +2311,7 @@ export default {
         manhole_style: null,
         cov_material: null,
         depth: null,
-        surface_el: null,
+        surface_el: '',
         y_coor: null,
         x_coor: null,
         hybjunctio: null,
@@ -2341,7 +2343,7 @@ export default {
         manhole_style: null,
         cov_material: null,
         depth: null,
-        surface_el: null,
+        surface_el: '',
         y_coor: null,
         x_coor: null,
         hybjunctio: null,

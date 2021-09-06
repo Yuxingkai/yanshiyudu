@@ -1630,6 +1630,8 @@ export default {
       this.searchForm.proId = one.id
       this.searchForm.districtId = one.district_id
       this.searchForm.districtName = one.district_name
+      this.addPipeForm.district_id = one.district_id
+      this.addPipeForm.district_name = one.district_name
       this.placeholder = one.district_name
       this.queryBydistrictId(one.district_id)
       this.getGcByProid(one.id)

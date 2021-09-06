@@ -1740,6 +1740,8 @@ export default {
       this.searchForm.proId = one.id
       this.searchForm.districtId = one.district_id
       this.searchForm.districtName = one.district_name
+      this.addYushuikouForm.district_name = one.district_name
+      this.addYushuikouForm.district_id = one.district_id
       this.placeholder = one.district_name
       this.queryBydistrictId(one.district_id)
       this.getGcByProid(one.id)

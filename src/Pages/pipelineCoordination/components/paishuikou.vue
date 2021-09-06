@@ -1131,6 +1131,8 @@ export default {
       this.searchForm.proId = one.id
       this.searchForm.districtId = one.district_id
       this.searchForm.districtName = one.district_name
+      this.addPaishuikouForm.district_name = one.district_name
+      this.addPaishuikouForm.district_id = one.district_id
       this.placeholder = one.district_name
       this.queryBydistrictId(one.district_id)
       this.getGcByProid(one.id)
@@ -1142,8 +1144,8 @@ export default {
             this.searchForm.proId = res.result[0].id
             this.searchForm.districtId = res.result[0].district_id
             this.searchForm.districtName = res.result[0].district_name
-            this.addPaishuikouForm.districtName = res.result[0].district_name
-            this.addPaishuikouForm.districtId = res.result[0].district_id
+            this.addPaishuikouForm.district_name = res.result[0].district_name
+            this.addPaishuikouForm.district_id = res.result[0].district_id
             this.placeholder = res.result[0].district_name
             this.queryBydistrictId(res.result[0].district_id)
             this.getGcByProid(res.result[0].id)
