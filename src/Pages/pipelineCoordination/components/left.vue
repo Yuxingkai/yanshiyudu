@@ -269,24 +269,115 @@ export default {
       this.piliangdaoru = false
     },
     xiazaiCsv () {
+      const hide = message.loading({ content: '正在导出...', duration: 0 });
+      // if (this.nowSelectValue == 2) {
+      //   // 检查井
+      //   this.$getWenjian(apiNames['后端批量导出检查井']).then(res => {
+      //       hide()
+      //       let blob = new Blob([res]);
+      //   　　let a = document.createElement('a');
+      //   　　a.href = URL.createObjectURL(blob);
+      //   　　a.target = '_blank';
+      //   　　a.download = (`检查井.xlsx`);
+      //   　　document.body.appendChild(a);
+      //   　　a.click();
+      //   　　document.body.removeChild(a);
+      //   })
+      // } else if (this.nowSelectValue == 1) {
+      //   // 雨水口
+      //   this.$getWenjian(apiNames['后端批量导出雨水口']).then(res => {
+      //       hide()
+      //       let blob = new Blob([res]);
+      //   　　let a = document.createElement('a');
+      //   　　a.href = URL.createObjectURL(blob);
+      //   　　a.target = '_blank';
+      //   　　a.download = (`雨水口.xlsx`);
+      //   　　document.body.appendChild(a);
+      //   　　a.click();
+      //   　　document.body.removeChild(a);
+      //   })
+      // } else if (this.nowSelectValue == 0) {
+      //   // 排水口
+      //   this.$getWenjian(apiNames['后端批量导出排水口']).then(res => {
+      //       hide()
+      //       let blob = new Blob([res]);
+      //   　　let a = document.createElement('a');
+      //   　　a.href = URL.createObjectURL(blob);
+      //   　　a.target = '_blank';
+      //   　　a.download = (`排水口.xlsx`);
+      //   　　document.body.appendChild(a);
+      //   　　a.click();
+      //   　　document.body.removeChild(a);
+      //   })
+      // } else if (this.nowSelectValue == 4) {
+      //   // 立管
+      //   this.$getWenjian(apiNames['后端批量导出立管']).then(res => {
+      //       hide()
+      //       let blob = new Blob([res]);
+      //   　　let a = document.createElement('a');
+      //   　　a.href = URL.createObjectURL(blob);
+      //   　　a.target = '_blank';
+      //   　　a.download = (`立管.xlsx`);
+      //   　　document.body.appendChild(a);
+      //   　　a.click();
+      //   　　document.body.removeChild(a);
+      //   })
+      // } else if (this.nowSelectValue == 5) {
+      //   // 化粪池
+      //   this.$getWenjian(apiNames['后端批量导出化粪池']).then(res => {
+      //       hide()
+      //       let blob = new Blob([res]);
+      //   　　let a = document.createElement('a');
+      //   　　a.href = URL.createObjectURL(blob);
+      //   　　a.target = '_blank';
+      //   　　a.download = (`化粪池.xlsx`);
+      //   　　document.body.appendChild(a);
+      //   　　a.click();
+      //   　　document.body.removeChild(a);
+      //   })
+      // } else if (this.nowSelectValue == 3) {
+      //   // 管线
+      //   this.$getWenjian(apiNames['后端批量导出管线']).then(res => {
+      //       hide()
+      //       let blob = new Blob([res]);
+      //   　　let a = document.createElement('a');
+      //   　　a.href = URL.createObjectURL(blob);
+      //   　　a.target = '_blank';
+      //   　　a.download = (`排水管.xlsx`);
+      //   　　document.body.appendChild(a);
+      //   　　a.click();
+      //   　　document.body.removeChild(a);
+      //   })
+      // }
       // window.open(`http://192.168.3.132:8082/yufan/gc/pipe/downloadcsv?fileFullName=${this.fileFullName}`)
-      let formData = new FormData();
-      formData.fileFullName = this.fileFullName
-      this.$get(`${apiNames['下载文件']}`, formData).then(res => {
+      // let formData = new FormData();
+      // formData.fileFullName = this.fileFullName
+      // this.$get(`${apiNames['下载文件']}`, formData).then(res => {
 
-          let blob = new Blob(["\ufeff" + res],{
-          　　type:'text/csv'
-          });
-          let dataStr = new Date().toLocaleDateString().replace(/\//g,'-');
+      //     let blob = new Blob(["\ufeff" + res],{
+      //     　　type:'text/csv'
+      //     });
+      //     let dataStr = new Date().toLocaleDateString().replace(/\//g,'-');
           
-          　　let a = document.createElement('a');
-          　　a.href = URL.createObjectURL(blob);
-          　　a.target = '_blank';
-          　　a.download = (this.fileCsvName + dataStr + '.csv');
-          　　document.body.appendChild(a);
-          　　a.click();
-          　　document.body.removeChild(a);
-        })
+      //     　　let a = document.createElement('a');
+      //     　　a.href = URL.createObjectURL(blob);
+      //     　　a.target = '_blank';
+      //     　　a.download = (this.fileCsvName + dataStr + '.csv');
+      //     　　document.body.appendChild(a);
+      //     　　a.click();
+      //     　　document.body.removeChild(a);
+      //   })
+      this.$getWenjian(apiNames['下载文件'], {fileFullName: this.fileFullName}).then(res => {
+            hide()
+            let blob = new Blob([res]);
+        　　let a = document.createElement('a');
+        　　a.href = URL.createObjectURL(blob);
+        　　a.target = '_blank';
+        　　a.download = (`${fileCsvName}.xlsx`);
+        　　document.body.appendChild(a);
+        　　a.click();
+        　　document.body.removeChild(a);
+      })
     },
     // 检查编码，引用了 jschardet
     checkEncoding(base64Str) {
@@ -325,59 +416,102 @@ export default {
           hide()
           message.success({ content: '批量导入成功!', duration: 2 })
         })
-      } else {
+      } else if (this.nowSelectValue == 0) {
         let selectedFile = null
         selectedFile = this.$refs.refFile.files[0];
-        if (selectedFile === undefined){
-          return
-        }
-        var reader = new FileReader();
-        reader.readAsDataURL(selectedFile);
-        reader.onload = evt => {
-          const data = evt.target.result
-          console.log(data, '获取的文件件');
-          const encoding = this.checkEncoding(data)
-          // console.log(encoding);
-          // 转换成二维数组，需要引入Papaparse.js
-          // 将csv转换成二维数组
-          Papa.parse(selectedFile, {
-            encoding: encoding,
-            header: true,
-            complete: async res => {
-              // UTF8 \r\n与\n混用时有可能会出问题
-              let data = res.data;
-              data.pop();
-              let filtArr = await this.groupByjuncid(data)
-              filtArr[0].map((item) => {
-                if (this.nowSelectValue == 0) {
-                    item.outfallid = 'A04' + guid()
-                } else if (this.nowSelectValue == 1) {
-                    item.combid = 'A02' + guid()
-                } else if (this.nowSelectValue == 2) {
-                    item.manholeid = 'A03' + guid()
-                } else {
-                    item.pipeid = 'A01' + guid()
-                }
-                item.objectid = Number(item.objectid)
-              })
-              filtArr[1].map((item) => {
-                // if (this.nowSelectValue == 0) {
-                //     item.outfallid = 'A04' + guid()
-                // } else if (this.nowSelectValue == 1) {
-                //     item.combid = 'A02' + guid()
-                // } else if (this.nowSelectValue == 2) {
-                //     item.manholeid = 'A03' + guid()
-                // } else {
-                //     item.pipeid = 'A01' + guid()
-                // }
-                item.objectid = Number(item.objectid)
-              })
-              multiAdd(filtArr, this.nowSelectValue)
-              console.log(filtArr);  // data就是文件里面的数据
-            }
-          });
-        };
+        const hide = message.loading({ content: '正在导入', duration: 0 });
+        let formData = new FormData();
+        formData.append('file', selectedFile);
+        this.$post(apiNames['后端批量导入排水口'], formData).then(res => {
+          hide()
+          message.success({ content: '批量导入成功!', duration: 2 })
+        })
+      } else if (this.nowSelectValue == 4) {
+        let selectedFile = null
+        selectedFile = this.$refs.refFile.files[0];
+        const hide = message.loading({ content: '正在导入', duration: 0 });
+        let formData = new FormData();
+        formData.append('file', selectedFile);
+        this.$post(apiNames['后端批量导入立管'], formData).then(res => {
+          hide()
+          message.success({ content: '批量导入成功!', duration: 2 })
+        })
+      } else if (this.nowSelectValue == 5) {
+        let selectedFile = null
+        selectedFile = this.$refs.refFile.files[0];
+        const hide = message.loading({ content: '正在导入', duration: 0 });
+        let formData = new FormData();
+        formData.append('file', selectedFile);
+        this.$post(apiNames['后端批量导入化粪池'], formData).then(res => {
+          hide()
+          message.success({ content: '批量导入成功!', duration: 2 })
+        })
+      } else if (this.nowSelectValue == 3) {
+        let selectedFile = null
+        selectedFile = this.$refs.refFile.files[0];
+        const hide = message.loading({ content: '正在导入', duration: 0 });
+        let formData = new FormData();
+        formData.append('file', selectedFile);
+        this.$post(apiNames['后端批量导入管线'], formData).then(res => {
+          hide()
+          message.success({ content: '批量导入成功!', duration: 2 })
+        })
       }
+
+
+      //  else {
+      //   let selectedFile = null
+      //   selectedFile = this.$refs.refFile.files[0];
+      //   if (selectedFile === undefined){
+      //     return
+      //   }
+      //   var reader = new FileReader();
+      //   reader.readAsDataURL(selectedFile);
+      //   reader.onload = evt => {
+      //     const data = evt.target.result
+      //     console.log(data, '获取的文件件');
+      //     const encoding = this.checkEncoding(data)
+      //     // console.log(encoding);
+      //     // 转换成二维数组，需要引入Papaparse.js
+      //     // 将csv转换成二维数组
+      //     Papa.parse(selectedFile, {
+      //       encoding: encoding,
+      //       header: true,
+      //       complete: async res => {
+      //         // UTF8 \r\n与\n混用时有可能会出问题
+      //         let data = res.data;
+      //         data.pop();
+      //         let filtArr = await this.groupByjuncid(data)
+      //         filtArr[0].map((item) => {
+      //           if (this.nowSelectValue == 0) {
+      //               item.outfallid = 'A04' + guid()
+      //           } else if (this.nowSelectValue == 1) {
+      //               item.combid = 'A02' + guid()
+      //           } else if (this.nowSelectValue == 2) {
+      //               item.manholeid = 'A03' + guid()
+      //           } else {
+      //               item.pipeid = 'A01' + guid()
+      //           }
+      //           item.objectid = Number(item.objectid)
+      //         })
+      //         filtArr[1].map((item) => {
+      //           // if (this.nowSelectValue == 0) {
+      //           //     item.outfallid = 'A04' + guid()
+      //           // } else if (this.nowSelectValue == 1) {
+      //           //     item.combid = 'A02' + guid()
+      //           // } else if (this.nowSelectValue == 2) {
+      //           //     item.manholeid = 'A03' + guid()
+      //           // } else {
+      //           //     item.pipeid = 'A01' + guid()
+      //           // }
+      //           item.objectid = Number(item.objectid)
+      //         })
+      //         multiAdd(filtArr, this.nowSelectValue)
+      //         console.log(filtArr);  // data就是文件里面的数据
+      //       }
+      //     });
+      //   };
+      // }
     },
     groupByjuncid (data) {
       let params = {

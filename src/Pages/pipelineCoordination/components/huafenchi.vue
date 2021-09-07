@@ -599,7 +599,6 @@ export default {
       );
     },
     handleChangeXM (e) {
-      this.getGcByProid(e)
       let one = this.xmNameArr.filter((item) => {
         return item.id == e
       })[0]
