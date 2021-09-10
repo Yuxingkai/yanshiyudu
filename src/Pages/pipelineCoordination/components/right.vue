@@ -45,6 +45,7 @@
             <div style="margin-top: .34rem;">
               <span style="margin-right: .3rem;">区域:</span>
               <a-cascader
+                  disabled
                   :defaultValue="defaultValue"
                   style="width: 2.76rem;margin-right: .3rem;color: white;"
                   :options="areaArr"
@@ -251,35 +252,6 @@
                       </div>
                       <div class="line">
                         <div>
-                          <span>所在区域: </span>
-                          <a-cascader
-                              :defaultValue="defaultValue"
-                              style="width: 2.76rem;margin-right: .3rem;color: white;"
-                              :options="areaArr"
-                              :load-data="loadData"
-                              :placeholder="placeholder"
-                              change-on-select
-                              @change="onChangeArea"
-                          />
-                        </div>
-                        <div>
-                          <span>所在道路: </span>
-                          <a-select
-                            style="width: 2.6rem;"
-                            placeholder="请选择"
-                            :showArrow="showArrow"
-                            optionFilterProp = "children"
-                            v-model="addPipeForm.locationcode"
-                            @change="onChangeRoad"
-                            :getPopupContainer= "(target) => target.parentNode">
-                            <a-select-option v-for="(role,roleindex) in roadArr" :key="roleindex.toString()" :value="role.value">
-                              {{ role.title }}
-                            </a-select-option>
-                          </a-select>
-                        </div>
-                      </div>
-                      <div class="line">
-                        <div>
                           <span>所属项目: </span>
                           <a-select
                             style="width: 2.3rem;margin-right: .3rem;"
@@ -308,6 +280,36 @@
                             :getPopupContainer= "(target) => target.parentNode">
                             <a-select-option v-for="(role,roleindex) in gcNameArr" :key="roleindex.toString()" :value="role.gcid">
                               {{ role.gcName }}
+                            </a-select-option>
+                          </a-select>
+                        </div>
+                      </div>
+                      <div class="line">
+                        <div>
+                          <span>所在区域: </span>
+                          <a-cascader
+                              disabled
+                              :defaultValue="defaultValue"
+                              style="width: 2.76rem;margin-right: .3rem;color: white;"
+                              :options="areaArr"
+                              :load-data="loadData"
+                              :placeholder="placeholder"
+                              change-on-select
+                              @change="onChangeArea"
+                          />
+                        </div>
+                        <div>
+                          <span>所在道路: </span>
+                          <a-select
+                            style="width: 2.6rem;"
+                            placeholder="请选择"
+                            :showArrow="showArrow"
+                            optionFilterProp = "children"
+                            v-model="addPipeForm.locationcode"
+                            @change="onChangeRoad"
+                            :getPopupContainer= "(target) => target.parentNode">
+                            <a-select-option v-for="(role,roleindex) in roadArr" :key="roleindex.toString()" :value="role.value">
+                              {{ role.title }}
                             </a-select-option>
                           </a-select>
                         </div>
@@ -397,6 +399,10 @@
                                 {{ role.title }}
                               </a-select-option>
                             </a-select>
+                          </div>
+                          <div style="margin-left: .25rem;">
+                            <span>检测长度(米): </span>
+                            <a-input style="width: 2.4rem;" v-model="addPipeForm.checkLength" placeholder="" />
                           </div>
                       </div>
                       <div class="line">
@@ -1163,7 +1169,8 @@ export default {
         pipe_pic: '',
         pipe_juli: '',
         proId: '',
-        gcId: ''
+        gcId: '',
+        checkLength: ''
       },
       addDefetsForm: {
         inJuncid: '',
@@ -1543,7 +1550,7 @@ export default {
       console.log(newVal, oldVal)
       if (newVal == 2) {
         console.log(newVal, oldVal)
-        this.choose(2)
+        // this.choose(2)
       } else {
         this.clearData()
         this.clearAlladd()
@@ -1554,15 +1561,10 @@ export default {
         this.searchForm.roadids = this.addPipeForm.locationcode
         // this.addPipeForm.district_name = this.placeholder
         // this.addPipeForm.district_id = disid
-        this.placeholder = this.addPipeForm.district_name
-        this.searchForm.districtId = this.addPipeForm.district_id
-        console.log('////////////////////----------')
-        console.log(this.addPipeForm)
-        console.log(this.addPipeForm.district_name, this.addPipeForm.district_id)
-        console.log(this.addPipeForm.district_name, this.addPipeForm.district_id)
-        console.log(this.searchForm.districtId, this.placeholder)
-         console.log('////////////////////----------')
-        this.queryBydistrictId(this.searchForm.districtId)
+        // this.placeholder = this.addPipeForm.district_name
+        // this.searchForm.districtId = this.addPipeForm.district_id
+        this.getXMname()
+        // this.queryBydistrictId(this.searchForm.districtId)
         this.getProvinceInfo()
       }
       for (let index = 0; index < 30; index++) {
@@ -1642,6 +1644,8 @@ export default {
             this.searchForm.proId = res.result[0].id
             this.searchForm.districtId = res.result[0].district_id
             this.searchForm.districtName = res.result[0].district_name
+
+            this.addPipeForm.proId = res.result[0].id
             this.addPipeForm.district_name = res.result[0].district_name
             this.addPipeForm.district_id = res.result[0].district_id
             this.placeholder = res.result[0].district_name
@@ -2375,10 +2379,10 @@ export default {
               out_juncid_ms: this.addPipeForm.out_juncid_ms,
               starsurfac: this.addPipeForm.starsurfac == '' ? null : this.addPipeForm.starsurfac,
               endsurface: this.addPipeForm.endsurface == '' ? null : this.addPipeForm.endsurface,
-              startx: this.addPipeForm.startx,
-              starty: this.addPipeForm.starty,
-              endx: this.addPipeForm.endx,
-              endy: this.addPipeForm.endy,
+              startx: this.addPipeForm.startx == '' || this.addPipeForm.startx == null ? 411911.3495047 : this.addPipeForm.startx,
+              starty: this.addPipeForm.starty == '' || this.addPipeForm.starty == null ? 2579304.22009144 : this.addPipeForm.starty,
+              endx: this.addPipeForm.endx == '' || this.addPipeForm.endx == null ? 411027.42773685 : this.addPipeForm.endx,
+              endy: this.addPipeForm.endy == '' || this.addPipeForm.endy == null ? 2579019.73952248 : this.addPipeForm.endy,
               locationcode: this.addPipeForm.locationcode,
               road_name: this.addPipeForm.road_name,
               constructi: this.addPipeForm.constructi == '' ? null : this.addPipeForm.constructi,
@@ -2395,6 +2399,25 @@ export default {
             this.nowPipeid = pipeid
           }).catch(err => {
             console.log('error', err)
+          })
+          let checkParam = {
+            "checkLength": this.addPipeForm.checkLength,
+            "checkMethod": this.addPipeForm.checkMethod,
+            "checkdirect": this.addPipeForm.checkdirect,
+            "createTime": getFormatymdhmsDate(new Date()),
+            "delFlag": 0,
+            "gcId": this.addPipeForm.gcId,
+            "isComplete": this.addPipeForm.isComplete,
+            "locationcode": this.addPipeForm.locationcode,
+            "material": this.addPipeForm.material,
+            "pipeCateg": this.addPipeForm.pipeCateg,
+            "pipeId": pipeid,
+            "projectId": this.addPipeForm.proId,
+            "remark": this.addPipeForm.remark,
+            "roadName": this.addPipeForm.road_name
+          }
+          this.$post(`${apiNames['管段检测新增']}`, checkParam).then(res => {
+            this.psPipeCheckItem(pipeid)
           })
         }
       }
@@ -2443,10 +2466,10 @@ export default {
           out_juncid_ms: this.addPipeForm.out_juncid_ms,
           starsurfac: this.addPipeForm.starsurfac,
           endsurface: this.addPipeForm.endsurface,
-          startx: this.addPipeForm.startx,
-          starty: this.addPipeForm.starty,
-          endx: this.addPipeForm.endx,
-          endy: this.addPipeForm.endy,
+          startx: this.addPipeForm.startx == '' || this.addPipeForm.startx == null ? 411911.3495047 : this.addPipeForm.startx,
+          starty: this.addPipeForm.starty == '' || this.addPipeForm.starty == null ? 2579304.22009144 : this.addPipeForm.starty,
+          endx: this.addPipeForm.endx == '' || this.addPipeForm.endx == null ? 411027.42773685 : this.addPipeForm.endx,
+          endy: this.addPipeForm.endy == '' || this.addPipeForm.endy == null ? 2579019.73952248 : this.addPipeForm.endy,
           locationcode: this.addPipeForm.locationcode,
           road_name: this.addPipeForm.road_name,
           objectid: this.chooseobjectid,
@@ -2470,6 +2493,31 @@ export default {
             }
           })
         }
+      })
+      let checkParam = {
+        "checkLength": this.addPipeForm.checkLength,
+        "checkMethod": this.addPipeForm.checkMethod,
+        "checkdirect": this.addPipeForm.checkdirect,
+        "createTime": getFormatymdhmsDate(new Date()),
+        "delFlag": 0,
+        "id": this.checkItemId,
+        "gcId": this.addPipeForm.gcId,
+        "isComplete": this.addPipeForm.isComplete,
+        "locationcode": this.addPipeForm.locationcode,
+        "material": this.addPipeForm.material,
+        "pipeCateg": this.addPipeForm.pipeCateg,
+        "pipeId": this.nowPipeid,
+        "projectId": this.addPipeForm.proId,
+        "remark": this.addPipeForm.remark,
+        "roadName": this.addPipeForm.road_name
+      }
+      this.$put(`${apiNames['管段检测修改']}`, checkParam).then(res => {
+      })
+    },
+    psPipeCheckItem (pipeId) {
+      this.$get(`${apiNames['获取管段检测数据']}`, {pipeId}).then(res => {
+        this.checkItemId = res.result[0].id
+        this.$set(this.addPipeForm, 'checkLength', res.result[0].checkLength)
       })
     },
     checkDefectIsEmty () {
@@ -2592,6 +2640,8 @@ export default {
           }).catch(err => {
             console.log('error', err)
           })
+          this.$get(apiNames['计算指数'], {pipeid: this.nowPipeid}).then(res => {
+          })
         }
       }
     },
@@ -2677,6 +2727,8 @@ export default {
             })
 
           })
+          this.$get(apiNames['计算指数'], {pipeid: this.nowPipeid}).then(res => {
+          })
         }
       }
     },
@@ -2709,6 +2761,7 @@ export default {
       this.addPipeForm.endx = ''
       this.addPipeForm.endy = ''
       this.addPipeForm.road_name = ''
+      this.addPipeForm.checkLength = ''
     },
     clearAlladd () {
       this.addDefetsForm = {
@@ -3207,10 +3260,10 @@ export default {
         out_juncid_ms: parseArr.outJuncidMs,
         starsurfac: parseArr.starsurfac,
         endsurface: parseArr.endsurface,
-        startx: parseArr.startx,
-        starty: parseArr.starty,
-        endx: parseArr.endx,
-        endy: parseArr.endy,
+        startx: parseArr.startx == 411911.3495047 ? '' : parseArr.startx,
+        starty: parseArr.starty == 2579304.22009144 ? '' : parseArr.starty,
+        endx: parseArr.endx == 411027.42773685 ? '' : parseArr.endx,
+        endy: parseArr.endy == 2579019.73952248 ? '' : parseArr.endy,
         locationcode: parseArr.locationcode,
         road_name: parseArr.road_name,
         check_date: parseArr.checkDate,
@@ -3258,18 +3311,25 @@ export default {
       this.queryPipeQxList()
     },
     showDetial (item) {
-      showInmap(item, 'ps_pipe')
+      if (item.startx == 411911.3495047) {
+        // console.log
+      } else {
+        showInmap(item, 'ps_pipe')
+      }
+      this.psPipeCheckItem(item.pipeid)
       this.actionDo(item)
-      this.choose(2)
+      this.chooseNum = 2
     },
     getProid (locationcode) {
       this.$get(apiNames['获取工程和项目信息'], {locationcode}).then(res => {
-        this.addPipeForm.proId = res.result[0].proId
-        this.addPipeForm.gcId = res.result[0].id
-        console.log(this.addPipeForm)
+        this.$set(this.addPipeForm, 'proId', res.result[0].proId)
+        this.$set(this.addPipeForm, 'gcId', res.result[0].id)
       })
     },
     choose (num) {
+      if (num == 2) {
+        this.getXMname()
+      }
       this.chooseNum = num
       if (num == 1) {
         // this.placeholder = ''
@@ -3294,8 +3354,10 @@ export default {
       let x3=(l1/L)*(x2-x1)+x1
       let y3=(l1/L)*(y2-y1)+y1
       addQXtoMap('delete', x3, y3, item, () => {
-        notification.success({ message: '删除提示', description: '编辑缺陷删除成功'})
+        notification.success({ message: '删除提示', description: '缺陷删除成功'})
         this.queryPipeQxList()
+      })
+      this.$get(apiNames['计算指数'], {pipeid: this.nowPipeid}).then(res => {
       })
     }
   },

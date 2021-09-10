@@ -237,7 +237,12 @@ const DefaultApi =  {
   '后端批量导出立管': serverUrl + '/gc/riser/exportXls',
   '后端批量导入化粪池': serverUrl + '/gc/septictank/importExcel?type=pc',
   '后端批量导出化粪池': serverUrl + '/gc/septictank/exportXls',
-  '获取工程和项目信息': serverUrl + '/gc/gcroad/queryGcBylocatecode'
+  '获取工程和项目信息': serverUrl + '/gc/gcroad/queryGcBylocatecode',
+  '管段检测新增': serverUrl + '/gc/psPipeCheck/add',
+  '管段检测修改': serverUrl + '/gc/psPipeCheck/edit',
+  '管段检测删除': serverUrl + '/gc/psPipeCheck/delete',
+  '获取管段检测数据': serverUrl + '/gc/psPipeCheck/queryById',
+  '计算指数': serverUrl + '/gc/pipe/repairMaintenance'
 }
 
 export const dictCodebyName = {

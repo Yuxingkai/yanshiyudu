@@ -156,7 +156,7 @@ export default {
           value: 3,
           src: require('../../../assets/imgs/zhihuipaishui/map/tubiao/paishuiguan.png'),
           editPicBoolen: false,
-          fileFullName: 'ps_pipe.csv',
+          fileFullName: 'ps_pipe.xlsx',
           type: 'pipe',
           style: 'width: .64rem;height: .32rem;margin-left: .6rem;'
         },
@@ -165,7 +165,7 @@ export default {
           value: 1,
           src: require('../../../assets/imgs/zhihuipaishui/map/tubiao/yushuijianchajiaojing.png'),
           editPicBoolen: false,
-          fileFullName: 'ps_comb.csv',
+          fileFullName: 'ps_comb.xlsx',
           type: 'comb',
           style: 'width: .32rem;height: .32rem;margin-left: .6rem;'
         },
@@ -174,7 +174,7 @@ export default {
           value: 2,
           src: require('../../../assets/imgs/zhihuipaishui/map/tubiao/wushuijianchajiaojing.png'),
           editPicBoolen: false,
-          fileFullName: 'ps_manhole.csv',
+          fileFullName: 'ps_manhole.xlsx',
           type: 'manhole',
           style: 'width: .32rem;height: .32rem;margin-left: .6rem;'
         },
@@ -183,7 +183,7 @@ export default {
           value: 4,
           src: require('../../../assets/imgs/zhihuipaishui/map/tubiao/liguan.png'),
           editPicBoolen: false,
-          fileFullName: 'ps_manhole.csv',
+          fileFullName: 'ps_riser.xlsx',
           type: 'liguan',
           style: 'width: .38rem;height: .52rem;margin-left: .6rem;'
         },
@@ -192,7 +192,7 @@ export default {
           value: 5,
           src: require('../../../assets/imgs/zhihuipaishui/map/tubiao/huafenchi.png'),
           editPicBoolen: false,
-          fileFullName: 'ps_manhole.csv',
+          fileFullName: 'ps_septictank.xlsx',
           type: 'huafenchi',
           style: 'width: .62rem;height: .42rem;margin-left: .6rem;'
         },
@@ -201,7 +201,7 @@ export default {
           value: 0,
           src: require('../../../assets/imgs/zhihuipaishui/map/tubiao/heliupaishuikou.png'),
           editPicBoolen: false,
-          fileFullName: 'ps_outfall.csv',
+          fileFullName: 'ps_outfall.xlsx',
           type: 'outfall',
           style: 'width: 1.14rem;height: .84rem;margin-left: .5rem;'
         }
@@ -373,7 +373,7 @@ export default {
         　　let a = document.createElement('a');
         　　a.href = URL.createObjectURL(blob);
         　　a.target = '_blank';
-        　　a.download = (`${fileCsvName}.xlsx`);
+        　　a.download = (`${this.fileCsvName}.xlsx`);
         　　document.body.appendChild(a);
         　　a.click();
         　　document.body.removeChild(a);
